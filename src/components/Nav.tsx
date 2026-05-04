@@ -11,8 +11,8 @@ const LANGS: { code: Lang; label: string; flag: string }[] = [
   { code: "en", label: "English", flag: "🇬🇧" },
   { code: "it", label: "Italiano", flag: "🇮🇹" },
   { code: "sq", label: "Shqip", flag: "🇦🇱" },
-  { code: "de", label: "Deutsch", flag: "🇨🇭" },
-  { code: "fr", label: "Français", flag: "🇨🇭" },
+  { code: "de", label: "Deutsch", flag: "🇩🇪" },
+  { code: "fr", label: "Français", flag: "🇫🇷" },
 ];
 
 const LangPicker = () => {

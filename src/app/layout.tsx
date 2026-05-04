@@ -134,7 +134,8 @@ export const viewport: Viewport = {
 
 const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${SITE_URL}#organization`,
   name: SITE_NAME,
   legalName: "Velior Group sh.p.k.",
   alternateName: "Velior",
@@ -188,16 +189,45 @@ const ORGANIZATION_JSONLD = {
     "Python",
     "Go",
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Velior Group services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Salesforce ecosystem", description: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Agentforce, Tableau, MuleSoft." } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Full-stack engineering", description: "Custom software in Next.js, Node, Python, Go." } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI & agents", description: "LLM, RAG and agent systems engineered for production." } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Process automation", description: "End-to-end iPaaS workflows on n8n and Make." } },
+    ],
+  },
+};
+
+const WEBSITE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  inLanguage: ["it", "en", "sq", "de", "fr"],
+  publisher: { "@id": `${SITE_URL}#organization` },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={poppins.variable}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger -- inline JSON-LD payload built from trusted constants
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger -- inline JSON-LD payload built from trusted constants
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSONLD) }}
         />
       </head>
       <body data-density="compact">
