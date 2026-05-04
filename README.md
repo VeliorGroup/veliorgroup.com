@@ -1,62 +1,110 @@
 # Velior Group
 
-Static marketing site for Velior Group — CRM, Automation & AI.
+Marketing site for Velior Group — CRM, Automation & AI.
 
 ## Stack
 
-- Plain HTML + CSS
-- React 18 (UMD via CDN)
-- Babel Standalone (in-browser JSX transform)
-- No build step
+- **Next.js 16** (App Router, static export)
+- **React 19**
+- **TypeScript 5**
+- Vanilla CSS (preserved from previous v2 design system)
+- Node.js 22 LTS
+
+The build outputs a fully static site to `out/`, which can be served by any HTTP host (Hostinger shared, Premium, Cloud, or VPS).
 
 ## Structure
 
 ```
 .
-├── index.html              # Main app (hash routing: home/about/services/contact)
-├── index-print.html        # Print-friendly variant (auto print on load)
-├── assets/                 # Logo & static images
-├── uploads/                # User-uploaded media
-├── scripts/
-│   ├── content.js          # i18n copy (en)
-│   ├── components.jsx      # Shared UI components
-│   ├── page-home.jsx       # Home page
-│   ├── pages.jsx           # About / Services / Contact pages
-│   └── tweaks-panel.jsx    # Dev tweaks panel
-└── styles/
-    ├── tokens.css          # Design tokens
-    └── site.css            # Site styles
+├── src/
+│   ├── app/                # App router pages + globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx        # Home
+│   │   ├── about/page.tsx
+│   │   ├── services/page.tsx
+│   │   └── contact/page.tsx
+│   ├── components/         # Nav, Footer, atoms, sections
+│   └── lib/                # copy.ts (i18n), lang.tsx (provider), router.tsx
+├── public/                 # Static assets served at root
+│   ├── .htaccess           # Apache config (HTTPS, gzip, cache, MIME)
+│   ├── assets/             # Logo
+│   └── uploads/
+├── _legacy/                # Original static React-CDN version (reference)
+├── .github/
+│   ├── dependabot.yml      # Auto-update deps (weekly)
+│   └── workflows/          # CI + Hostinger FTP deploy
+├── next.config.ts
+├── tsconfig.json
+└── package.json
 ```
 
 ## Local development
 
-Open `index.html` via any static server (Babel Standalone needs HTTP, not `file://`):
-
 ```bash
-python3 -m http.server 8000
-# or
-npx serve .
+npm install
+npm run dev          # http://localhost:3000
+npm run build        # static export → out/
+npm run lint
+npm run typecheck
 ```
-
-Then visit http://localhost:8000
 
 ## Deploy — Hostinger
 
-1. Push to GitHub (this repo).
-2. Hostinger hPanel → **Websites** → choose domain → **File Manager**.
-3. Upload contents of repo into `public_html/` (or use **Git** integration in hPanel pointing to this repo, branch `main`, install path `public_html`).
-4. `.htaccess` is included for compression, caching, and HTTPS redirect.
+The build produces a fully static site in `out/`. Three options:
 
-### Git deployment (recommended)
+### Option A — GitHub Actions FTP (automatic on push)
 
-In Hostinger hPanel:
-- **Advanced → Git** → Create repository
-- Repository address: `https://github.com/VeliorGroup/veliorgroup.com.git`
+Add these secrets in **GitHub repo → Settings → Secrets and variables → Actions**:
+
+| Secret                    | Example value                  |
+|---------------------------|--------------------------------|
+| `HOSTINGER_FTP_HOST`      | `ftp.veliorgroup.com`          |
+| `HOSTINGER_FTP_USER`      | `u123456789.veliorgroup`       |
+| `HOSTINGER_FTP_PASSWORD`  | (FTP account password)         |
+| `HOSTINGER_FTP_PATH`      | `/public_html/`                |
+
+FTP credentials live in **hPanel → Files → FTP Accounts**.
+
+Every push to `main` runs `.github/workflows/deploy-hostinger.yml`: builds and uploads `out/` via FTP.
+
+### Option B — Hostinger Git deployment
+
+In hPanel → **Advanced → Git**:
+
+- Repository: `https://github.com/VeliorGroup/veliorgroup.com.git`
 - Branch: `main`
 - Install path: `public_html`
-- Enable auto-deployment webhook (paste webhook URL in GitHub repo Settings → Webhooks).
 
-## Notes
+Then add a build step to run `npm ci && npm run build` and serve `out/` (only available on plans with Node.js / SSH access). Otherwise prefer Option A.
 
-- Babel in-browser is fine for low-traffic marketing sites; for production scale, precompile JSX with esbuild/Vite.
-- Hash routing means deep links work without server rewrites.
+### Option C — manual upload
+
+```bash
+npm run build
+# Drag the contents of out/ (NOT the folder itself) into public_html/ via hPanel File Manager.
+```
+
+## Auto-updates
+
+`.github/dependabot.yml` opens grouped weekly PRs against `main` for:
+
+- Next.js + eslint-config-next
+- React + types
+- Other dev deps (minor/patch)
+- GitHub Actions versions
+
+Merge the PR — CI runs lint + typecheck + build before deploy is allowed.
+
+## Routes
+
+- `/` Home
+- `/about/`
+- `/services/`
+- `/contact/`
+- 404 → `/404.html` (configured in `.htaccess`)
+
+The site is bilingual EN/IT — language is selected by the user (toolbar toggle) and persisted in `localStorage`.
+
+## License
+
+Proprietary — © Velior Group.

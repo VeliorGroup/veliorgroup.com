@@ -72,9 +72,21 @@ DirectoryIndex index.html
 </FilesMatch>
 
 # ----------------------------------------------------------------------
-# Custom error pages (optional — uncomment if you create them)
+# Custom error pages — Next.js static export generates 404.html
 # ----------------------------------------------------------------------
-# ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------
+# Clean URLs for Next.js static export (trailingSlash: true → /about/)
+# If a request lacks a file extension and isn't an existing file/dir,
+# rewrite to <path>/index.html.
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]+$
+  RewriteRule ^(.*)$ $1/index.html [L]
+</IfModule>
 
 # ----------------------------------------------------------------------
 # Correct MIME types
@@ -82,5 +94,5 @@ DirectoryIndex index.html
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType font/woff2 .woff2
-  AddType application/javascript .js .jsx
+  AddType application/javascript .js
 </IfModule>
