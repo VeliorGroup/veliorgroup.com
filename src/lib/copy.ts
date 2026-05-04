@@ -41,7 +41,7 @@ export const COPY = {
     },
     services: {
       eyebrow: "What we do",
-      title: "Four pillars. One operating system for your business.",
+      title: "Four pillars. One stack, shipped end-to-end.",
       items: [
         {
           n: "01",
@@ -155,7 +155,7 @@ export const COPY = {
       buildNext: ["Let's build your", "next chapter."] as [string, string],
       operatingPrinciples: "operating principles",
       whatWeBelieve: "What we believe, in practice.",
-      threePillars: ["Three pillars.", "One operating system", "for your business."] as [string, string, string],
+      threePillars: ["Four pillars.", "One stack,", "shipped end-to-end."] as [string, string, string],
       pillar: "pillar",
       ambitiousOperators: ["A European consultancy for", "ambitious operators."] as [string, string],
       tellUs: ["Tell us about your", "next move."] as [string, string],
@@ -217,7 +217,7 @@ export const COPY = {
     },
     services: {
       eyebrow: "Cosa facciamo",
-      title: "Quattro pilastri. Un sistema operativo per la tua azienda.",
+      title: "Quattro pilastri. Uno stack unico, consegnato end-to-end.",
       items: [
         {
           n: "01",
@@ -331,7 +331,7 @@ export const COPY = {
       buildNext: ["Costruiamo il tuo", "prossimo capitolo."] as [string, string],
       operatingPrinciples: "principi operativi",
       whatWeBelieve: "Cosa crediamo, nella pratica.",
-      threePillars: ["Tre pilastri.", "Un sistema operativo", "per la tua azienda."] as [string, string, string],
+      threePillars: ["Quattro pilastri.", "Uno stack unico,", "consegnato end-to-end."] as [string, string, string],
       pillar: "pilastro",
       ambitiousOperators: ["Una consulenza europea per", "operatori ambiziosi."] as [string, string],
       tellUs: ["Raccontaci la tua", "prossima mossa."] as [string, string],
@@ -393,7 +393,7 @@ export const COPY = {
     },
     services: {
       eyebrow: "Çfarë bëjmë",
-      title: "Katër shtylla. Një sistem operativ për biznesin tuaj.",
+      title: "Katër shtylla. Një stack i vetëm, i dorëzuar end-to-end.",
       items: [
         {
           n: "01",
@@ -507,7 +507,7 @@ export const COPY = {
       buildNext: ["Le ta ndërtojmë", "kapitullin tënd të radhës."] as [string, string],
       operatingPrinciples: "parime operative",
       whatWeBelieve: "Çfarë besojmë, në praktikë.",
-      threePillars: ["Tre shtylla.", "Një sistem operativ", "për biznesin tuaj."] as [string, string, string],
+      threePillars: ["Katër shtylla.", "Një stack i vetëm,", "i dorëzuar end-to-end."] as [string, string, string],
       pillar: "shtyllë",
       ambitiousOperators: ["Një konsulencë evropiane për", "operatorë ambiciozë."] as [string, string],
       tellUs: ["Na trego për lëvizjen", "tënde të radhës."] as [string, string],
