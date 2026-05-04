@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     siteName: "Velior Group",
     type: "website",
   },
-  icons: {
-    icon: "/assets/velior-logo.webp",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
