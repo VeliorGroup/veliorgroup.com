@@ -134,7 +134,7 @@ export const COPY = {
       stats: [
         { v: "2025", l: "Founded" },
         { v: "15", l: "Engineers & consultants" },
-        { v: "98%", l: "Client retention" },
+        { v: "100+", l: "Salesforce certifications" },
       ],
     },
     footer: {
@@ -310,7 +310,7 @@ export const COPY = {
       stats: [
         { v: "2025", l: "Fondata" },
         { v: "15", l: "Ingegneri & consulenti" },
-        { v: "98%", l: "Retention clienti" },
+        { v: "100+", l: "Certificazioni Salesforce" },
       ],
     },
     footer: {
