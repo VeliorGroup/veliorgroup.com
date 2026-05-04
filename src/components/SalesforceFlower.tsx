@@ -86,8 +86,8 @@ export const SalesforceFlower = () => {
     <div className="sf-flower">
       <div className="sf-flower-center">
         <div className="sf-flower-core">
-          <span className="sf-flower-core-mark">Salesforce</span>
-          <span className="sf-flower-core-sub">{t.salesforce.coreSub}</span>
+          {/* eslint-disable-next-line @next/next/no-img-element -- inline brand mark */}
+          <img className="sf-flower-core-logo" src="/assets/tech/salesforce.svg" alt="Salesforce" />
         </div>
         <div className="sf-flower-orbit" aria-hidden />
       </div>
