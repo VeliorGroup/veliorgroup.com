@@ -10,7 +10,7 @@ const TIRANA_LNG = 19.8187;
 export const WorldMap = () => {
   const { t } = useLang();
 
-  const svgUri = useMemo(() => {
+  const { svgUri, x, y } = useMemo(() => {
     const map = new DottedMap({ height: 60, grid: "diagonal" });
     const svg = map.getSVG({
       radius: 0.22,
@@ -18,12 +18,16 @@ export const WorldMap = () => {
       shape: "circle",
       backgroundColor: "transparent",
     });
-    return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+    const vb = svg.match(/viewBox="0 0 (\d+(?:\.\d+)?) (\d+(?:\.\d+)?)"/);
+    const w = vb ? parseFloat(vb[1]) : 119;
+    const h = vb ? parseFloat(vb[2]) : 60;
+    const pin = map.getPin({ lat: TIRANA_LAT, lng: TIRANA_LNG }) as { x: number; y: number };
+    return {
+      svgUri: `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`,
+      x: (pin.x / w) * 100,
+      y: (pin.y / h) * 100,
+    };
   }, []);
-
-  // dotted-map outputs an equirectangular projection covering the full lat/lng range.
-  const x = ((TIRANA_LNG + 180) / 360) * 100;
-  const y = ((90 - TIRANA_LAT) / 180) * 100;
 
   return (
     <div className="world-map">
