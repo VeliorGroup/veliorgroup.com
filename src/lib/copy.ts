@@ -27,7 +27,7 @@ export const COPY = {
     partner: {
       eyebrow: "Salesforce Partner",
       title: "Certified across the platform.",
-      lede: "From Sales Cloud to Agentforce and Data Cloud — our consultants hold active certifications and ship production work every quarter. Velior is a registered Salesforce Consulting Partner.",
+      lede: "From Sales Cloud to Agentforce and Data Cloud: our consultants hold active certifications and ship production work every quarter. Velior is a registered Salesforce Consulting Partner.",
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -47,19 +47,19 @@ export const COPY = {
         {
           n: "01",
           t: "Salesforce",
-          d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau and Agentforce — implemented, integrated, and tuned for ROI.",
+          d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau and Agentforce: implemented, integrated, and tuned for ROI.",
           bullets: ["Implementation & migration", "Lightning & Apex development", "Reporting & dashboards", "Agentforce & AI agents"],
         },
         {
           n: "02",
           t: "Full-stack engineering",
-          d: "Custom software in Next.js, Node, Python and Go — built with the same rigour as the platforms we integrate.",
+          d: "Custom software in Next.js, Node, Python and Go: built with the same rigour as the platforms we integrate.",
           bullets: ["Next.js / Angular / Vue apps", "FastAPI & Node services", "Postgres, Mongo, Redis", "DevOps & observability"],
         },
         {
           n: "03",
           t: "AI & agents",
-          d: "LLM, RAG and agent systems engineered for production — grounded in your data, governed, and measurable.",
+          d: "LLM, RAG and agent systems engineered for production: grounded in your data, governed, and measurable.",
           bullets: ["LLM & RAG pipelines", "Embeddings & vector search", "Agentforce & custom agents", "Evaluation & guardrails"],
         },
         {
@@ -76,14 +76,14 @@ export const COPY = {
       steps: [
         { n: "01", t: "Discovery", d: "We audit your stack, data, and processes to identify bottlenecks and opportunities. You receive a written diagnosis and a prioritised roadmap." },
         { n: "02", t: "Design", d: "We define solution architecture, data model, integrations, and acceptance criteria. Nothing gets built before scope and outcomes are signed off." },
-        { n: "03", t: "Implement", d: "Iterative delivery with regular demos and transparent progress. Clean code, reviewed and documented as we go — no black boxes." },
+        { n: "03", t: "Implement", d: "Iterative delivery with regular demos and transparent progress. Clean code, reviewed and documented as we go: no black boxes." },
         { n: "04", t: "Support", d: "Hand-off with training, runbooks, and a dedicated SLA. We stay close to evolve the platform as your business grows." },
       ],
     },
     cases: {
       eyebrow: "Selected work",
       title: "Outcomes, not screenshots.",
-      lede: "A few recent engagements. Real names available under NDA — get in touch for the full deck.",
+      lede: "A few recent engagements. Real names available under NDA: get in touch for the full deck.",
       items: [
         { tag: "Manufacturing · Sales Cloud", t: "Unified pipeline across 11 EU countries", m: [{ v: "−42%", l: "Reporting time" }, { v: "3.1×", l: "Lead qualification speed" }, { v: "€1.8M", l: "Recovered pipeline visibility" }] },
         { tag: "Insurance · Agentforce + Data Cloud", t: "Customer-service AI agent on legacy stack", m: [{ v: "68%", l: "Tickets auto-resolved" }, { v: "11s", l: "Avg. first response" }, { v: "4 wks", l: "From kickoff to live" }] },
@@ -97,7 +97,7 @@ export const COPY = {
     testimonials: {
       eyebrow: "What partners say",
       items: [
-        { q: "Velior didn't sell us Salesforce — they sold us an outcome, then delivered it three weeks early.", n: "Marco Bellini", r: "COO, mid-market manufacturer" },
+        { q: "Velior didn't sell us Salesforce: they sold us an outcome, then delivered it three weeks early.", n: "Marco Bellini", r: "COO, mid-market manufacturer" },
         { q: "The team's depth across Salesforce, n8n and custom Python is rare. We replaced two vendors with one.", n: "Anna Rossi", r: "Head of Digital, retail group" },
         { q: "Quietly excellent. Code is clean, communication is precise, no theatre.", n: "Luca Conti", r: "CTO, SaaS scale-up" },
       ],
@@ -205,7 +205,7 @@ export const COPY = {
     partner: {
       eyebrow: "Salesforce Partner",
       title: "Certificati su tutta la piattaforma.",
-      lede: "Da Sales Cloud ad Agentforce e Data Cloud — i nostri consulenti detengono certificazioni attive e rilasciano lavoro in produzione ogni trimestre. Velior è Salesforce Consulting Partner registrato.",
+      lede: "Da Sales Cloud ad Agentforce e Data Cloud: i nostri consulenti detengono certificazioni attive e rilasciano lavoro in produzione ogni trimestre. Velior è Salesforce Consulting Partner registrato.",
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -225,19 +225,19 @@ export const COPY = {
         {
           n: "01",
           t: "Salesforce",
-          d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau e Agentforce — implementati, integrati e ottimizzati per il ROI.",
+          d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau e Agentforce: implementati, integrati e ottimizzati per il ROI.",
           bullets: ["Implementazione & migrazione", "Sviluppo Lightning & Apex", "Reportistica & dashboard", "Agentforce & AI agents"],
         },
         {
           n: "02",
           t: "Sviluppo full-stack",
-          d: "Software custom in Next.js, Node, Python e Go — costruito con lo stesso rigore delle piattaforme che integriamo.",
+          d: "Software custom in Next.js, Node, Python e Go: costruito con lo stesso rigore delle piattaforme che integriamo.",
           bullets: ["App Next.js / Angular / Vue", "Servizi FastAPI & Node", "Postgres, Mongo, Redis", "DevOps & observability"],
         },
         {
           n: "03",
           t: "AI & agenti",
-          d: "Sistemi LLM, RAG e agenti progettati per la produzione — radicati nei tuoi dati, governati e misurabili.",
+          d: "Sistemi LLM, RAG e agenti progettati per la produzione: radicati nei tuoi dati, governati e misurabili.",
           bullets: ["Pipeline LLM & RAG", "Embeddings & vector search", "Agentforce & agenti custom", "Valutazione & guardrail"],
         },
         {
@@ -254,14 +254,14 @@ export const COPY = {
       steps: [
         { n: "01", t: "Discovery", d: "Analizziamo stack, dati e processi per identificare colli di bottiglia e opportunità. Consegniamo una diagnosi scritta e una roadmap con priorità." },
         { n: "02", t: "Design", d: "Definiamo architettura della soluzione, modello dati, integrazioni e criteri di accettazione. Nulla viene costruito prima dell'approvazione di scope e risultati attesi." },
-        { n: "03", t: "Implementazione", d: "Rilascio iterativo con demo periodiche e progresso trasparente. Codice pulito, revisionato e documentato in corsa — nessuna black box." },
+        { n: "03", t: "Implementazione", d: "Rilascio iterativo con demo periodiche e progresso trasparente. Codice pulito, revisionato e documentato in corsa: nessuna black box." },
         { n: "04", t: "Supporto", d: "Passaggio con training, runbook e SLA dedicato. Restiamo vicini per far evolvere la piattaforma con la crescita del business." },
       ],
     },
     cases: {
       eyebrow: "Lavori selezionati",
       title: "Risultati, non screenshot.",
-      lede: "Alcuni progetti recenti. Nomi reali disponibili sotto NDA — contattaci per il deck completo.",
+      lede: "Alcuni progetti recenti. Nomi reali disponibili sotto NDA: contattaci per il deck completo.",
       items: [
         { tag: "Manifatturiero · Sales Cloud", t: "Pipeline unificata su 11 paesi UE", m: [{ v: "−42%", l: "Tempo di reporting" }, { v: "3.1×", l: "Velocità qualifica lead" }, { v: "€1.8M", l: "Pipeline recuperata" }] },
         { tag: "Assicurazioni · Agentforce + Data Cloud", t: "Agente AI di customer service su stack legacy", m: [{ v: "68%", l: "Ticket auto-risolti" }, { v: "11s", l: "Prima risposta media" }, { v: "4 sett.", l: "Dal via al live" }] },
@@ -275,7 +275,7 @@ export const COPY = {
     testimonials: {
       eyebrow: "Cosa dicono i partner",
       items: [
-        { q: "Velior non ci ha venduto Salesforce — ci ha venduto un risultato, poi l'ha consegnato tre settimane in anticipo.", n: "Marco Bellini", r: "COO, manifatturiero mid-market" },
+        { q: "Velior non ci ha venduto Salesforce: ci ha venduto un risultato, poi l'ha consegnato tre settimane in anticipo.", n: "Marco Bellini", r: "COO, manifatturiero mid-market" },
         { q: "La profondità del team su Salesforce, n8n e Python custom è rara. Abbiamo sostituito due fornitori con uno.", n: "Anna Rossi", r: "Head of Digital, gruppo retail" },
         { q: "Eccellenza silenziosa. Codice pulito, comunicazione precisa, niente teatro.", n: "Luca Conti", r: "CTO, SaaS scale-up" },
       ],
