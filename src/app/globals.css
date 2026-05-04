@@ -1539,7 +1539,7 @@ button { font-family: inherit; cursor: pointer; }
 .sf-flower-petal-5 { --rot: 240deg; }
 .sf-flower-petal-6 { --rot: 300deg; }
 .sf-flower-petal {
-  transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -105%);
+  transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -92%);
 }
 @keyframes sfPetalIn {
   from { opacity: 0; }
@@ -1627,7 +1627,7 @@ button { font-family: inherit; cursor: pointer; }
   .sf-flower { max-width: 520px; }
   .sf-flower-petal {
     width: 40%;
-    transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -98%);
+    transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -88%);
   }
 }
 
