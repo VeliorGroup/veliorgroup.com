@@ -1,4 +1,4 @@
-import { Hero, PartnerSection, ServicesSection, TechStack, Testimonials } from "@/components/home";
+import { Hero, PartnerSection, ServicesSection, TechStack } from "@/components/home";
 import { ContactCTA, ProcessSection } from "@/components/shared";
 
 export default function HomePage() {
@@ -9,7 +9,7 @@ export default function HomePage() {
       <ServicesSection />
       <TechStack />
       <ProcessSection />
-      <Testimonials />
+      {/* <Testimonials /> hidden until real testimonials are collected */}
       <ContactCTA />
     </>
   );
