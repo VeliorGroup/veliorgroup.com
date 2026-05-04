@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Velior Group · CRM, Automation & AI",
   description:
-    "Salesforce Consulting Partner. CRM, automation, and AI engineered for growth — from Tirana and Tallinn.",
+    "Salesforce Consulting Partner. CRM, automation, and AI engineered for growth — from Tirana, Albania.",
   metadataBase: new URL("https://veliorgroup.com"),
   openGraph: {
     title: "Velior Group · CRM, Automation & AI",

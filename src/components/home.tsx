@@ -115,11 +115,11 @@ export const PartnerSection = () => {
             <Reveal delay={200}>
               <div className="partner-stats">
                 <div className="partner-stat">
-                  <div className="partner-stat-v">130+</div>
+                  <div className="partner-stat-v">100+</div>
                   <div className="partner-stat-l">{t.ui.activeCerts}</div>
                 </div>
                 <div className="partner-stat">
-                  <div className="partner-stat-v">30+</div>
+                  <div className="partner-stat-v">20+</div>
                   <div className="partner-stat-l">{t.ui.implementations}</div>
                 </div>
                 <div className="partner-stat">
