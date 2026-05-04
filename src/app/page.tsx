@@ -5,10 +5,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TechStack />
       <PartnerSection />
       <ServicesSection />
       <ProcessSection />
+      <TechStack />
       <Testimonials />
       <ContactCTA />
     </>

@@ -145,12 +145,6 @@ export const ContactContent = () => {
           <Reveal delay={300}>
             <div className="contact-detail">
               <div className="contact-detail-row">
-                <span className="contact-detail-k">{t.ui.email}</span>
-                <a href={`mailto:${t.contact.detail.email}`} className="contact-detail-v">
-                  {t.contact.detail.email}
-                </a>
-              </div>
-              <div className="contact-detail-row">
                 <span className="contact-detail-k">{t.ui.office}</span>
                 <span className="contact-detail-v">{t.contact.detail.location}</span>
               </div>
