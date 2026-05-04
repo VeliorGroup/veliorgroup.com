@@ -627,7 +627,8 @@ button { font-family: inherit; cursor: pointer; }
   display: inline-flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.tech-logo svg { width: 100%; height: 100%; display: block; }
+.tech-logo svg,
+.tech-logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .tech-logo-placeholder {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--cyan);
