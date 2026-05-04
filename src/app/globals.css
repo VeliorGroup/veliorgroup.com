@@ -1208,13 +1208,13 @@ button { font-family: inherit; cursor: pointer; }
 /* === ABOUT === */
 .about-stats-section { padding-top: 60px; }
 .about-stats-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
   border-radius: var(--r-3);
   overflow: hidden;
 }
-@media (max-width: 720px) { .about-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .about-stats-grid { grid-template-columns: 1fr; } }
 .about-stat {
   background: rgba(10, 10, 64, 0.5);
   padding: 36px 24px;

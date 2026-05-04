@@ -134,8 +134,7 @@ export const COPY = {
       ],
       stats: [
         { v: "2025", l: "Founded" },
-        { v: "17", l: "Engineers & consultants" },
-        { v: "11", l: "Countries served" },
+        { v: "15", l: "Engineers & consultants" },
         { v: "98%", l: "Client retention" },
       ],
     },
@@ -312,8 +311,7 @@ export const COPY = {
       ],
       stats: [
         { v: "2025", l: "Fondata" },
-        { v: "17", l: "Ingegneri & consulenti" },
-        { v: "11", l: "Paesi serviti" },
+        { v: "15", l: "Ingegneri & consulenti" },
         { v: "98%", l: "Retention clienti" },
       ],
     },
