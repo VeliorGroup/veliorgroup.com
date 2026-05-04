@@ -1352,15 +1352,24 @@ button { font-family: inherit; cursor: pointer; }
 .service-deep-bullets li { display: flex; gap: 10px; align-items: center; font-size: 15px; color: var(--fg-2); }
 
 /* === SALESFORCE FLOWER === */
-.sf-flower-wrap {
-  margin-top: 80px;
-  padding-top: 60px;
-  border-top: 1px solid var(--line);
+.sf-section {
+  position: relative;
+  overflow: hidden;
+}
+.sf-section::before {
+  content: "";
+  position: absolute;
+  width: 900px; height: 900px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(125, 48, 243, 0.10), transparent 60%);
+  pointer-events: none;
 }
 .sf-flower-head {
   text-align: center;
-  max-width: 640px;
-  margin: 0 auto 56px;
+  max-width: 720px;
+  margin: 0 auto 64px;
+  position: relative;
 }
 .sf-flower-title {
   margin: 14px 0 16px;
@@ -1439,12 +1448,23 @@ button { font-family: inherit; cursor: pointer; }
   width: 36%;
   aspect-ratio: 1 / 1;
 }
-.sf-flower-petal-1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -78%); }
-.sf-flower-petal-2 { transform: translate(-50%, -50%) rotate(60deg)  translate(0, -78%); }
-.sf-flower-petal-3 { transform: translate(-50%, -50%) rotate(120deg) translate(0, -78%); }
-.sf-flower-petal-4 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -78%); }
-.sf-flower-petal-5 { transform: translate(-50%, -50%) rotate(240deg) translate(0, -78%); }
-.sf-flower-petal-6 { transform: translate(-50%, -50%) rotate(300deg) translate(0, -78%); }
+.sf-flower-petal {
+  opacity: 0;
+  animation: sfPetalIn 700ms var(--ease) forwards;
+}
+.sf-flower-petal-1 { --rot: 0deg;   }
+.sf-flower-petal-2 { --rot: 60deg;  }
+.sf-flower-petal-3 { --rot: 120deg; }
+.sf-flower-petal-4 { --rot: 180deg; }
+.sf-flower-petal-5 { --rot: 240deg; }
+.sf-flower-petal-6 { --rot: 300deg; }
+.sf-flower-petal {
+  transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -78%);
+}
+@keyframes sfPetalIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 .sf-flower-petal-1 .sf-flower-petal-inner { transform: rotate(0deg); }
 .sf-flower-petal-2 .sf-flower-petal-inner { transform: rotate(-60deg); }
@@ -1511,13 +1531,10 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 900px) {
   .sf-flower { max-width: 520px; }
-  .sf-flower-petal { width: 42%; }
-  .sf-flower-petal-1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -75%); }
-  .sf-flower-petal-2 { transform: translate(-50%, -50%) rotate(60deg)  translate(0, -75%); }
-  .sf-flower-petal-3 { transform: translate(-50%, -50%) rotate(120deg) translate(0, -75%); }
-  .sf-flower-petal-4 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -75%); }
-  .sf-flower-petal-5 { transform: translate(-50%, -50%) rotate(240deg) translate(0, -75%); }
-  .sf-flower-petal-6 { transform: translate(-50%, -50%) rotate(300deg) translate(0, -75%); }
+  .sf-flower-petal {
+    width: 42%;
+    transform: translate(-50%, -50%) rotate(var(--rot)) translate(0, -75%);
+  }
 }
 
 /* === CONTACT PAGE === */

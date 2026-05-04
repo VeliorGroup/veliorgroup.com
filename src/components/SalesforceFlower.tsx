@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useLang } from "@/lib/lang";
-import { Reveal } from "./atoms";
+import { Eyebrow, Reveal } from "./atoms";
 
 type Petal = {
   key: string;
@@ -84,17 +84,21 @@ export const SalesforceFlower = () => {
 
   return (
     <div className="sf-flower">
-      <Reveal scale className="sf-flower-center">
+      <div className="sf-flower-center">
         <div className="sf-flower-core">
           <span className="sf-flower-core-mark">Salesforce</span>
           <span className="sf-flower-core-sub">{t.salesforce.coreSub}</span>
         </div>
         <div className="sf-flower-orbit" aria-hidden />
-      </Reveal>
+      </div>
 
       <div className="sf-flower-petals">
         {PETALS.map((p, i) => (
-          <Reveal key={p.key} delay={120 + i * 90} className={`sf-flower-petal sf-flower-petal-${i + 1}`}>
+          <div
+            key={p.key}
+            className={`sf-flower-petal sf-flower-petal-${i + 1}`}
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
             <div className="sf-flower-petal-inner" style={{ background: p.hue }}>
               <div className="sf-flower-petal-icon">{p.icon}</div>
               <div className="sf-flower-petal-text">
@@ -102,9 +106,27 @@ export const SalesforceFlower = () => {
                 <div className="sf-flower-petal-desc">{labels[i]?.d ?? ""}</div>
               </div>
             </div>
-          </Reveal>
+          </div>
         ))}
       </div>
     </div>
+  );
+};
+
+export const SalesforceFlowerSection = () => {
+  const { t } = useLang();
+  return (
+    <section className="section sf-section">
+      <div className="container">
+        <Reveal>
+          <div className="sf-flower-head">
+            <Eyebrow>{t.salesforce.eyebrow}</Eyebrow>
+            <h2 className="h1 sf-flower-title">{t.salesforce.title}</h2>
+            <p className="lede sf-flower-lede">{t.salesforce.lede}</p>
+          </div>
+        </Reveal>
+        <SalesforceFlower />
+      </div>
+    </section>
   );
 };
