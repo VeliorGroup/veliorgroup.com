@@ -357,7 +357,7 @@ export const COPY = {
   },
   sq: {
     nav: {
-      home: "Ballina",
+      home: "Home",
       about: "Rreth nesh",
       services: "Shërbimet",
       contact: "Kontakt",
