@@ -52,10 +52,15 @@ export const Nav = () => {
           ))}
         </nav>
         <div className="nav-actions">
-          <button className="lang-toggle" onClick={() => setLang(lang === "en" ? "it" : "en")}>
+          <button
+            className="lang-toggle"
+            onClick={() => setLang(lang === "en" ? "it" : lang === "it" ? "sq" : "en")}
+          >
             <span className={lang === "en" ? "active" : ""}>EN</span>
             <span className="lang-divider">/</span>
             <span className={lang === "it" ? "active" : ""}>IT</span>
+            <span className="lang-divider">/</span>
+            <span className={lang === "sq" ? "active" : ""}>SQ</span>
           </button>
           <button className="btn btn-gradient nav-cta" onClick={() => navigate("contact")}>
             {t.nav.cta}
