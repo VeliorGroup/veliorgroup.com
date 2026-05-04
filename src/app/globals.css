@@ -1398,7 +1398,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .world-map-marker {
   position: absolute;
-  width: 12px; height: 12px;
+  width: 14px; height: 14px;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
@@ -1407,25 +1407,37 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 50%;
   background: var(--cyan);
   box-shadow:
-    0 0 0 2px rgba(0, 0, 24, 0.6),
-    0 0 16px var(--cyan),
-    0 0 32px rgba(3, 236, 233, 0.55);
-  z-index: 2;
+    0 0 0 2px rgba(0, 0, 24, 0.85),
+    0 0 12px var(--cyan),
+    0 0 28px rgba(3, 236, 233, 0.7),
+    0 0 56px rgba(3, 236, 233, 0.35);
+  z-index: 4;
+}
+.world-map-ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(3, 236, 233, 0.4);
+  box-shadow: 0 0 16px rgba(3, 236, 233, 0.2) inset;
+  z-index: 3;
 }
 .world-map-pulse {
   position: absolute; inset: 0;
   border-radius: 50%;
-  background: rgba(3, 236, 233, 0.5);
-  animation: worldMapPulse 2.4s ease-out infinite;
+  background: rgba(3, 236, 233, 0.55);
+  animation: worldMapPulse 2.6s ease-out infinite;
   z-index: 1;
 }
+.world-map-pulse-2 {
+  animation-delay: 1.3s;
+}
 @keyframes worldMapPulse {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  80%  { transform: scale(4.5); opacity: 0;   }
-  100% { transform: scale(4.5); opacity: 0;   }
+  0%   { transform: scale(1);   opacity: 0.7; }
+  80%  { transform: scale(5);   opacity: 0;   }
+  100% { transform: scale(5);   opacity: 0;   }
 }
 .world-map-label {
-  margin-top: 14px;
+  position: absolute;
+  transform: translate(-50%, 22px);
   padding: 4px 10px;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1437,6 +1449,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 999px;
   white-space: nowrap;
   box-shadow: 0 0 16px rgba(3, 236, 233, 0.18);
+  z-index: 2;
 }
 @media (max-width: 720px) {
   .contact-map-wrap { margin-top: 64px; }
