@@ -5,6 +5,7 @@ import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading } from "
 import { ContactCTA, ProcessSection } from "./shared";
 import { WorldMap } from "./WorldMap";
 import { SalesforceFlower } from "./SalesforceFlower";
+import { TechStack } from "./home";
 
 const WA_AL = "355696555559";
 const WA_IT = "393203238814";
@@ -125,6 +126,7 @@ export const ServicesContent = () => {
         </section>
       ))}
 
+      <TechStack />
       <ProcessSection />
       <ContactCTA />
     </>
