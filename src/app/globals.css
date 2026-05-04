@@ -44,10 +44,10 @@
   --glow-cyan:   0 0 40px rgba(3, 236, 233, 0.35);
   --glow-mix:    0 0 60px rgba(125, 48, 243, 0.35), 0 0 100px rgba(3, 236, 233, 0.20);
 
-  /* Type */
-  --font-sans:    "Geist", "Inter", system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Geist", system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+  /* Type — single family across the whole site */
+  --font-sans:    var(--font-poppins), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-poppins), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    var(--font-poppins), system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Spacing */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px;  --s-4: 16px;
