@@ -127,41 +127,43 @@ export const ContactContent = () => {
   const { t } = useLang();
   return (
     <section className="contact-page">
-      <div className="container contact-grid-v2">
-        <div>
+      <div className="container">
+        <div className="contact-head">
           <Reveal>
             <Eyebrow>{t.contact.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="h-display" style={{ marginTop: 20 }}>
+            <h1 className="h-display contact-title">
               {t.ui.tellUs[0]} <span className="gradient-text-brand">{t.ui.tellUs[1]}</span>
             </h1>
           </Reveal>
-          <Reveal delay={200}>
-            <p className="lede" style={{ marginTop: 24 }}>
-              {t.contact.lede}
-            </p>
-          </Reveal>
-          <Reveal delay={300}>
-            <div className="contact-detail">
-              <div className="contact-detail-row">
-                <span className="contact-detail-k">{t.ui.office}</span>
-                <span className="contact-detail-v">{t.contact.detail.location}</span>
-              </div>
-              <div className="contact-detail-row">
-                <span className="contact-detail-k">{t.ui.hours}</span>
-                <span className="contact-detail-v">{t.contact.detail.hours}</span>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={400}>
-            <div style={{ marginTop: 40 }}>
-              <SalesforcePartnerBadge />
-            </div>
-          </Reveal>
         </div>
 
-        <Reveal delay={200} className="contact-channels-card">
+        <div className="contact-grid-v2">
+          <div>
+            <Reveal delay={120}>
+              <p className="lede contact-lede">{t.contact.lede}</p>
+            </Reveal>
+            <Reveal delay={220}>
+              <div className="contact-detail">
+                <div className="contact-detail-row">
+                  <span className="contact-detail-k">{t.ui.office}</span>
+                  <span className="contact-detail-v">{t.contact.detail.location}</span>
+                </div>
+                <div className="contact-detail-row">
+                  <span className="contact-detail-k">{t.ui.hours}</span>
+                  <span className="contact-detail-v">{t.contact.detail.hours}</span>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={320}>
+              <div style={{ marginTop: 40 }}>
+                <SalesforcePartnerBadge />
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200} className="contact-channels-card">
           <div className="channels-head">
             <span className="channels-eyebrow">{t.ui.directLine}</span>
             <h2 className="h2 channels-title">{t.ui.howToReach}</h2>
@@ -202,6 +204,7 @@ export const ContactContent = () => {
             <span className="channel-icon"><Arrow size={16} /></span>
           </a>
         </Reveal>
+        </div>
       </div>
     </section>
   );
