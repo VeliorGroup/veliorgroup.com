@@ -4,18 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
 
-export const VeliorMark = ({ size = 22 }: { size?: number }) => (
-  <Link href="/" className="velior-mark" data-route="home" style={{ fontSize: size }}>
-    <Image
-      src="/assets/velior-logo.webp"
-      alt="Velior"
-      width={size + 10}
-      height={size + 10}
-      priority
-      style={{ height: size + 10, width: "auto", filter: "brightness(1.15)" }}
-    />
-  </Link>
-);
+const LOGO_W = 2381;
+const LOGO_H = 719;
+const LOGO_RATIO = LOGO_W / LOGO_H;
+
+export const VeliorMark = ({ size = 22 }: { size?: number }) => {
+  const h = size + 10;
+  const w = Math.round(h * LOGO_RATIO);
+  return (
+    <Link href="/" className="velior-mark" data-route="home" style={{ fontSize: size }}>
+      <Image
+        src="/assets/velior-logo.webp"
+        alt="Velior"
+        width={w}
+        height={h}
+        priority
+        sizes={`${w}px`}
+        style={{ height: h, width: w, filter: "brightness(1.15)" }}
+      />
+    </Link>
+  );
+};
 
 export const SalesforcePartnerBadge = ({ compact = false }: { compact?: boolean }) => (
   <div className="sf-badge" style={compact ? { padding: "8px 12px" } : undefined}>
