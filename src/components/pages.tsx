@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { useLang } from "@/lib/lang";
 import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading } from "./atoms";
 import { ContactCTA, ProcessSection } from "./shared";
+
+const WA_AL = "355696555559";
+const WA_IT = "393203238814";
 
 export const AboutContent = () => {
   const { t } = useLang();
@@ -115,49 +117,17 @@ export const ServicesContent = () => {
   );
 };
 
-type FormState = {
-  firstName: string;
-  lastName: string;
-  company: string;
-  email: string;
-  topic: string;
-  message: string;
-};
-
-type FormErrors = {
-  firstName?: boolean;
-  lastName?: boolean;
-  email?: boolean;
-  message?: boolean;
-};
+const WhatsAppGlyph = ({ size = 22 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.4-3-1.4-4.6 0-4.6 3.7-8.4 8.4-8.4 4.6 0 8.4 3.7 8.4 8.4-.1 4.6-3.8 8.5-8.4 8.5z" />
+  </svg>
+);
 
 export const ContactContent = () => {
   const { t } = useLang();
-  const [form, setForm] = useState<FormState>({
-    firstName: "",
-    lastName: "",
-    company: "",
-    email: "",
-    topic: t.contact.form.topics[0],
-    message: "",
-  });
-  const [sent, setSent] = useState(false);
-  const [errs, setErrs] = useState<FormErrors>({});
-
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const er: FormErrors = {};
-    if (!form.firstName.trim()) er.firstName = true;
-    if (!form.lastName.trim()) er.lastName = true;
-    if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) er.email = true;
-    if (form.message.trim().length < 10) er.message = true;
-    setErrs(er);
-    if (Object.keys(er).length === 0) setSent(true);
-  };
-
   return (
     <section className="contact-page">
-      <div className="container contact-grid">
+      <div className="container contact-grid-v2">
         <div>
           <Reveal>
             <Eyebrow>{t.contact.eyebrow}</Eyebrow>
@@ -197,88 +167,39 @@ export const ContactContent = () => {
           </Reveal>
         </div>
 
-        <Reveal delay={200} className="contact-form-card">
-          {sent ? (
-            <div className="form-sent">
-              <div className="form-sent-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48">
-                  <circle cx="24" cy="24" r="22" stroke="url(#g)" strokeWidth="1.5" fill="none" />
-                  <path
-                    d="M14 24 L21 31 L34 17"
-                    stroke="url(#g)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <defs>
-                    <linearGradient id="g" x1="0" y1="0" x2="48" y2="48">
-                      <stop offset="0%" stopColor="#7D30F3" />
-                      <stop offset="100%" stopColor="#03ECE9" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <h3 style={{ fontSize: 28, margin: "20px 0 12px", color: "var(--fg)" }}>{t.ui.messageReceived}</h3>
-              <p className="body">{t.contact.form.sent}</p>
-            </div>
-          ) : (
-            <form onSubmit={submit} className="contact-form" noValidate>
-              <div className="form-row two">
-                <label className={`field ${errs.firstName ? "err" : ""}`}>
-                  <span>{t.contact.form.firstName}</span>
-                  <input
-                    type="text"
-                    value={form.firstName}
-                    onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                  />
-                </label>
-                <label className={`field ${errs.lastName ? "err" : ""}`}>
-                  <span>{t.contact.form.lastName}</span>
-                  <input
-                    type="text"
-                    value={form.lastName}
-                    onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                  />
-                </label>
-              </div>
-              <label className="field">
-                <span>{t.contact.form.company}</span>
-                <input
-                  type="text"
-                  value={form.company}
-                  onChange={(e) => setForm({ ...form, company: e.target.value })}
-                />
-              </label>
-              <label className={`field ${errs.email ? "err" : ""}`}>
-                <span>{t.contact.form.email}</span>
-                <input
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-              </label>
-              <label className="field">
-                <span>{t.contact.form.topic}</span>
-                <select value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })}>
-                  {t.contact.form.topics.map((tp, i) => (
-                    <option key={i}>{tp}</option>
-                  ))}
-                </select>
-              </label>
-              <label className={`field ${errs.message ? "err" : ""}`}>
-                <span>{t.contact.form.message}</span>
-                <textarea
-                  rows={5}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                />
-              </label>
-              <button type="submit" className="btn btn-gradient" style={{ alignSelf: "flex-start", marginTop: 8 }}>
-                {t.contact.form.submit} <Arrow />
-              </button>
-            </form>
-          )}
+        <Reveal delay={200} className="contact-channels-card">
+          <div className="channels-head">
+            <span className="channels-eyebrow">{t.ui.directLine}</span>
+            <h2 className="h2 channels-title">{t.ui.howToReach}</h2>
+            <p className="body channels-lede">{t.ui.channelsLede}</p>
+          </div>
+
+          <a className="channel-row" href={`https://wa.me/${WA_IT}`} target="_blank" rel="noopener noreferrer">
+            <span className="channel-flag" aria-hidden>🇮🇹</span>
+            <span className="channel-body">
+              <span className="channel-k">{t.ui.italy} · WhatsApp</span>
+              <span className="channel-v">0039 320 323 8814</span>
+            </span>
+            <span className="channel-icon"><WhatsAppGlyph /></span>
+          </a>
+
+          <a className="channel-row" href={`https://wa.me/${WA_AL}`} target="_blank" rel="noopener noreferrer">
+            <span className="channel-flag" aria-hidden>🇦🇱</span>
+            <span className="channel-body">
+              <span className="channel-k">{t.ui.albania} · WhatsApp</span>
+              <span className="channel-v">00355 69 655 5559</span>
+            </span>
+            <span className="channel-icon"><WhatsAppGlyph /></span>
+          </a>
+
+          <a className="channel-row" href={`mailto:${t.contact.detail.email}`}>
+            <span className="channel-flag" aria-hidden>✉</span>
+            <span className="channel-body">
+              <span className="channel-k">{t.ui.email}</span>
+              <span className="channel-v">{t.contact.detail.email}</span>
+            </span>
+            <span className="channel-icon"><Arrow size={16} /></span>
+          </a>
         </Reveal>
       </div>
     </section>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { LangProvider } from "@/lib/lang";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Nav />
           <main>{children}</main>
           <Footer />
+          <WhatsAppWidget />
         </LangProvider>
       </body>
     </html>

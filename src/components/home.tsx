@@ -78,26 +78,51 @@ export const Hero = () => {
   );
 };
 
+const TECH_GROUP_ORDER = ["CRM", "AI", "Data", "BI", "iPaaS", "Frontend", "Backend"] as const;
+
 export const TechStack = () => {
   const { t } = useLang();
+  const grouped = TECH_GROUP_ORDER.map((g) => ({
+    group: g,
+    items: TECH_STACK.filter((it) => it.group === g),
+  })).filter((g) => g.items.length > 0);
+
   return (
-    <section className="tech-section">
+    <section className="tech-section-v2">
       <div className="container">
         <Reveal>
           <div style={{ textAlign: "center" }}>
             <Eyebrow>{t.ui.techStack}</Eyebrow>
           </div>
         </Reveal>
-        <div className="tech-marquee-wrap">
-          <div className="tech-marquee">
-            {[...TECH_STACK, ...TECH_STACK].map((tech, i) => (
-              <div key={i} className="tech-tile">
-                <TechLogo kind={tech.logo} />
-                <span className="tech-name">{tech.name}</span>
-                <span className="tech-group">{tech.group}</span>
+        <Reveal delay={80}>
+          <h2 className="h2 tech-v2-title">
+            {t.ui.techStackTitle[0]}{" "}
+            <span className="gradient-text-brand">{t.ui.techStackTitle[1]}</span>
+          </h2>
+        </Reveal>
+        <div className="tech-v2-groups">
+          {grouped.map((g, gi) => (
+            <Reveal key={g.group} delay={120 + gi * 60} className="tech-v2-group">
+              <div className="tech-v2-group-head">
+                <span className="tech-v2-group-label">{g.group}</span>
+                <span className="tech-v2-group-line" />
+                <span className="tech-v2-group-count">
+                  {String(g.items.length).padStart(2, "0")}
+                </span>
               </div>
-            ))}
-          </div>
+              <div className="tech-v2-grid">
+                {g.items.map((tech) => (
+                  <div key={tech.name} className="tech-v2-card">
+                    <div className="tech-v2-logo">
+                      <TechLogo kind={tech.logo} />
+                    </div>
+                    <span className="tech-v2-name">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
