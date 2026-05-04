@@ -10,13 +10,14 @@ LIVE="$ROOT/veliorgroup-live"
 PREV_FILE="$ROOT/.veliorgroup-prev"
 
 NEW="${1:-}"
-if [ -z "$NEW" ] || [ ! -d "$NEW/.next/standalone" ]; then
-    echo "usage: veliorgroup-switch <slot-dir>  (slot must contain a built .next/standalone)" >&2
+if [ -z "$NEW" ] || [ ! -d "$NEW/.next" ]; then
+    echo "usage: veliorgroup-switch <slot-dir>  (slot must contain a built .next/)" >&2
     exit 1
 fi
 
-# The systemd unit's WorkingDirectory points at the standalone dir.
-NEW_TARGET="$NEW/.next/standalone"
+# The systemd unit's WorkingDirectory points at the slot root; npm start
+# resolves .next/ from there.
+NEW_TARGET="$NEW"
 
 # Save current target so we can roll back.
 if [ -L "$LIVE" ]; then

@@ -10,7 +10,7 @@ WorkingDirectory=/home/web/veliorgroup-live
 Environment=NODE_ENV=production
 Environment=PORT=3000
 Environment=HOSTNAME=127.0.0.1
-ExecStart=/usr/bin/node server.js
+ExecStart=/usr/bin/npm start --silent
 Restart=on-failure
 RestartSec=2
 StandardOutput=append:/var/log/veliorgroup/app.log

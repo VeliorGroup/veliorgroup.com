@@ -45,9 +45,5 @@ cd "$TARGET"
 npm ci --no-audit --no-fund
 npm run build
 
-# Standalone build needs static + public copied alongside server.js.
-cp -r .next/static .next/standalone/.next/
-cp -r public .next/standalone/
-
 echo "==> Build complete in $TARGET"
 exec /usr/local/bin/veliorgroup-switch "$TARGET"
