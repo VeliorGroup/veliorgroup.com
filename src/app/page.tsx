@@ -7,8 +7,8 @@ export default function HomePage() {
       <Hero />
       <PartnerSection />
       <ServicesSection />
-      <ProcessSection />
       <TechStack />
+      <ProcessSection />
       <Testimonials />
       <ContactCTA />
     </>
