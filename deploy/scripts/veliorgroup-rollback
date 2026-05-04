@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Flip veliorgroup-live back to the previous target recorded by
+# veliorgroup-switch, then restart the service.
+
+set -euo pipefail
+
+ROOT=/home/web
+LIVE="$ROOT/veliorgroup-live"
+PREV_FILE="$ROOT/.veliorgroup-prev"
+
+if [ ! -s "$PREV_FILE" ]; then
+    echo "no previous deployment recorded ($PREV_FILE empty or missing)" >&2
+    exit 1
+fi
+
+PREV="$(cat "$PREV_FILE")"
+if [ ! -d "$PREV" ]; then
+    echo "previous deployment dir gone: $PREV" >&2
+    exit 1
+fi
+
+CURRENT=""
+if [ -L "$LIVE" ]; then
+    CURRENT="$(readlink -f "$LIVE")"
+fi
+
+ln -sfn "$PREV" "$LIVE"
+echo "==> rolled back: veliorgroup-live -> $PREV"
+
+# Track the slot we just left so we can swap back forward if needed.
+if [ -n "$CURRENT" ]; then
+    echo "$CURRENT" > "$PREV_FILE"
+fi
+
+sudo /usr/sbin/service veliorgroup restart
+echo "==> service restarted"

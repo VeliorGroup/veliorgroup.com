@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Atomically point veliorgroup-live at the slot passed as $1, then restart
+# the service. Records the previous target in /home/web/.veliorgroup-prev so
+# veliorgroup-rollback can flip back.
+
+set -euo pipefail
+
+ROOT=/home/web
+LIVE="$ROOT/veliorgroup-live"
+PREV_FILE="$ROOT/.veliorgroup-prev"
+
+NEW="${1:-}"
+if [ -z "$NEW" ] || [ ! -d "$NEW/.next/standalone" ]; then
+    echo "usage: veliorgroup-switch <slot-dir>  (slot must contain a built .next/standalone)" >&2
+    exit 1
+fi
+
+# The systemd unit's WorkingDirectory points at the standalone dir.
+NEW_TARGET="$NEW/.next/standalone"
+
+# Save current target so we can roll back.
+if [ -L "$LIVE" ]; then
+    readlink -f "$LIVE" > "$PREV_FILE"
+fi
+
+ln -sfn "$NEW_TARGET" "$LIVE"
+echo "==> veliorgroup-live -> $NEW_TARGET"
+
+sudo /usr/sbin/service veliorgroup restart
+echo "==> service restarted"

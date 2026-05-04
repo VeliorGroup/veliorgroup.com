@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Blue/green build for Velior Group.
+#
+# Layout under /home/web:
+#   veliorgroup-a/           # one of two checkouts
+#   veliorgroup-b/           # the other
+#   veliorgroup-live -> veliorgroup-a (symlink, swapped by veliorgroup-switch)
+#
+# This script:
+#   1. Picks the inactive slot (whichever is NOT the current symlink target).
+#   2. Pulls latest main into that slot.
+#   3. Runs npm ci + next build there.
+#   4. Hands off to veliorgroup-switch to atomically swap the symlink and
+#      restart the service.
+#
+# Run as the `web` user. Requires gh + node + npm.
+
+set -euo pipefail
+
+ROOT=/home/web
+LIVE="$ROOT/veliorgroup-live"
+A="$ROOT/veliorgroup-a"
+B="$ROOT/veliorgroup-b"
+REPO="https://github.com/VeliorGroup/veliorgroup.com.git"
+BRANCH="main"
+
+# Resolve which slot is currently live, build into the other one.
+if [ -L "$LIVE" ] && [ "$(readlink -f "$LIVE")" = "$A" ]; then
+    TARGET="$B"
+else
+    TARGET="$A"
+fi
+
+echo "==> Building into $TARGET"
+
+if [ ! -d "$TARGET/.git" ]; then
+    rm -rf "$TARGET"
+    git clone --branch "$BRANCH" --depth 1 "$REPO" "$TARGET"
+else
+    git -C "$TARGET" fetch --depth 1 origin "$BRANCH"
+    git -C "$TARGET" reset --hard "origin/$BRANCH"
+fi
+
+cd "$TARGET"
+npm ci --no-audit --no-fund
+npm run build
+
+# Standalone build needs static + public copied alongside server.js.
+cp -r .next/static .next/standalone/.next/
+cp -r public .next/standalone/
+
+echo "==> Build complete in $TARGET"
+exec /usr/local/bin/veliorgroup-switch "$TARGET"
