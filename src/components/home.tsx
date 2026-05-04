@@ -8,13 +8,9 @@ import {
   Reveal,
   SalesforcePartnerBadge,
   SectionHeading,
-  ServiceIcon,
-  type ServiceIconKind,
   TECH_STACK,
   TechLogo,
 } from "./atoms";
-
-const SERVICE_ICON_KINDS: ServiceIconKind[] = ["salesforce", "fullstack", "ai", "automation"];
 
 export const Hero = () => {
   const { t } = useLang();
@@ -64,7 +60,7 @@ export const Hero = () => {
         </Reveal>
         <Reveal delay={520}>
           <div className="hero-stats">
-            {t.hero.stats.map((s, i) => (
+            {t.about.stats.map((s, i) => (
               <div key={i} className="hero-stat">
                 <div className="hero-stat-v">{s.v}</div>
                 <div className="hero-stat-l">{s.l}</div>
@@ -138,18 +134,12 @@ export const PartnerSection = () => {
             <SectionHeading eyebrow={t.partner.eyebrow} title={t.partner.title} lede={t.partner.lede} />
             <Reveal delay={200}>
               <div className="partner-stats">
-                <div className="partner-stat">
-                  <div className="partner-stat-v">100+</div>
-                  <div className="partner-stat-l">{t.ui.activeCerts}</div>
-                </div>
-                <div className="partner-stat">
-                  <div className="partner-stat-v">20+</div>
-                  <div className="partner-stat-l">{t.ui.implementations}</div>
-                </div>
-                <div className="partner-stat">
-                  <div className="partner-stat-v">2025</div>
-                  <div className="partner-stat-l">{t.ui.partnerSince}</div>
-                </div>
+                {t.about.stats.map((s, i) => (
+                  <div key={i} className="partner-stat">
+                    <div className="partner-stat-v">{s.v}</div>
+                    <div className="partner-stat-l">{s.l}</div>
+                  </div>
+                ))}
               </div>
             </Reveal>
           </div>
@@ -183,9 +173,6 @@ export const ServicesSection = () => {
           {t.services.items.map((s, i) => (
             <Reveal key={i} delay={i * 100} className="service-card">
               <span className="service-num">{s.n}</span>
-              <div className="service-icon">
-                <ServiceIcon kind={SERVICE_ICON_KINDS[i]} />
-              </div>
               <h3 className="service-title">{s.t}</h3>
               <p className="service-desc">{s.d}</p>
               <ul className="service-bullets">
