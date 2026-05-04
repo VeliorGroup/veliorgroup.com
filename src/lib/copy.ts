@@ -18,9 +18,9 @@ export const COPY = {
       ctaPrimary: "Book a free consultation",
       ctaSecondary: "Explore our services",
       stats: [
-        { v: "20+", l: "Closed projects" },
+        { v: "2025", l: "Founded" },
+        { v: "15", l: "Engineers & consultants" },
         { v: "100+", l: "Salesforce certifications" },
-        { v: "1", l: "Office · Tirana" },
       ],
     },
     partner: {
@@ -208,9 +208,9 @@ export const COPY = {
       ctaPrimary: "Richiedi una consulenza gratuita",
       ctaSecondary: "Scopri i nostri servizi",
       stats: [
-        { v: "20+", l: "Progetti chiusi" },
+        { v: "2025", l: "Fondata" },
+        { v: "15", l: "Ingegneri & consulenti" },
         { v: "100+", l: "Certificazioni Salesforce" },
-        { v: "1", l: "Sede · Tirana" },
       ],
     },
     partner: {
@@ -398,9 +398,9 @@ export const COPY = {
       ctaPrimary: "Kërko një konsultë falas",
       ctaSecondary: "Eksploro shërbimet",
       stats: [
-        { v: "20+", l: "Projekte të mbyllura" },
+        { v: "2025", l: "Themeluar" },
+        { v: "15", l: "Inxhinierë & konsulentë" },
         { v: "100+", l: "Çertifikime Salesforce" },
-        { v: "1", l: "Zyrë · Tirana" },
       ],
     },
     partner: {
@@ -588,9 +588,9 @@ export const COPY = {
       ctaPrimary: "Kostenlose Beratung anfordern",
       ctaSecondary: "Leistungen entdecken",
       stats: [
-        { v: "20+", l: "Abgeschlossene Projekte" },
+        { v: "2025", l: "Gegründet" },
+        { v: "15", l: "Ingenieure & Berater" },
         { v: "100+", l: "Salesforce-Zertifizierungen" },
-        { v: "1", l: "Standort · Tirana" },
       ],
     },
     partner: {
@@ -778,9 +778,9 @@ export const COPY = {
       ctaPrimary: "Demander une consultation gratuite",
       ctaSecondary: "Découvrir nos services",
       stats: [
-        { v: "20+", l: "Projets livrés" },
+        { v: "2025", l: "Fondé" },
+        { v: "15", l: "Ingénieurs & consultants" },
         { v: "100+", l: "Certifications Salesforce" },
-        { v: "1", l: "Bureau · Tirana" },
       ],
     },
     partner: {
@@ -968,9 +968,9 @@ export const COPY = {
       ctaPrimary: "احجز استشارة مجانية",
       ctaSecondary: "اكتشف خدماتنا",
       stats: [
-        { v: "+20", l: "مشاريع مكتملة" },
+        { v: "2025", l: "تأسست" },
+        { v: "15", l: "مهندسون ومستشارون" },
         { v: "+100", l: "شهادات Salesforce" },
-        { v: "1", l: "مكتب · تيرانا" },
       ],
     },
     partner: {

@@ -60,7 +60,7 @@ export const Hero = () => {
         </Reveal>
         <Reveal delay={520}>
           <div className="hero-stats">
-            {t.about.stats.map((s, i) => (
+            {t.hero.stats.map((s, i) => (
               <div key={i} className="hero-stat">
                 <div className="hero-stat-v">{s.v}</div>
                 <div className="hero-stat-l">{s.l}</div>
@@ -134,7 +134,7 @@ export const PartnerSection = () => {
             <SectionHeading eyebrow={t.partner.eyebrow} title={t.partner.title} lede={t.partner.lede} />
             <Reveal delay={200}>
               <div className="partner-stats">
-                {t.about.stats.map((s, i) => (
+                {t.hero.stats.map((s, i) => (
                   <div key={i} className="partner-stat">
                     <div className="partner-stat-v">{s.v}</div>
                     <div className="partner-stat-l">{s.l}</div>
