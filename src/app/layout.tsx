@@ -13,12 +13,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Velior Group · CRM, Automation & AI",
+  title: { default: "Velior Group", template: "Velior Group" },
   description:
     "Salesforce Consulting Partner. CRM, automation, and AI engineered for growth — from Tirana, Albania.",
   metadataBase: new URL("https://veliorgroup.com"),
   openGraph: {
-    title: "Velior Group · CRM, Automation & AI",
+    title: "Velior Group",
     description: "CRM, automation, and AI engineered for growth.",
     url: "https://veliorgroup.com",
     siteName: "Velior Group",
