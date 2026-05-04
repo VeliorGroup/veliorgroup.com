@@ -1729,20 +1729,8 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 1;
-  border: 1px solid var(--line);
-  border-radius: var(--r-4);
-  background:
-    radial-gradient(ellipse 60% 80% at 50% 30%, rgba(125, 48, 243, 0.10), transparent 60%),
-    radial-gradient(ellipse 50% 60% at 60% 40%, rgba(3, 236, 233, 0.06), transparent 70%),
-    rgba(10, 10, 64, 0.35);
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-.world-map::before {
-  content: "";
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--violet-2), var(--cyan), transparent);
+  background: transparent;
+  overflow: visible;
 }
 .world-map-img {
   position: absolute; inset: 0;
