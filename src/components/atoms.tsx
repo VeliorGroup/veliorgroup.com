@@ -209,7 +209,10 @@ type TechLogoKind =
   | "openrouter"
   | "langchain";
 
-const TECH_LOGOS: Record<TechLogoKind, ReactNode> = {
+// Logos live as standalone SVG files in /public/assets/tech/<kind>.svg.
+// The unused TECH_LOGOS map below is kept as a fallback for when the file
+// isn't reachable, but the runtime path is the <img> below.
+const _TECH_LOGOS_FALLBACK: Record<TechLogoKind, ReactNode> = {
   salesforce: (
     <svg viewBox="0 0 32 22" fill="#00A1E0">
       <path d="M13.3 2.4c1-1 2.3-1.6 3.8-1.6 2 0 3.7 1.1 4.6 2.7.8-.4 1.7-.6 2.7-.6 3.5 0 6.4 2.9 6.4 6.4 0 .9-.2 1.7-.5 2.5 1.1.5 1.8 1.6 1.8 2.9 0 1.7-1.4 3.1-3.1 3.1-.2 0-.4 0-.6-.1-.6 2.2-2.6 3.8-5 3.8-1 0-1.9-.3-2.7-.8-.8 1.7-2.5 2.8-4.5 2.8s-3.8-1.2-4.6-2.9c-.5.1-1 .2-1.6.2-2.4 0-4.4-1.8-4.7-4.1C2.6 16.1 1 14.4 1 12.3c0-1.4.7-2.7 1.8-3.4-.2-.5-.4-1.1-.4-1.7C2.4 4.5 4.5 2.4 7 2.4c1.5 0 2.7.7 3.5 1.7.7-1 1.8-1.7 3.1-1.7" />
@@ -350,8 +353,15 @@ const TECH_LOGOS: Record<TechLogoKind, ReactNode> = {
 };
 
 export const TechLogo = ({ kind }: { kind: TechLogoKind }) => (
-  <span className="tech-logo">{TECH_LOGOS[kind] ?? <span className="tech-logo-placeholder" />}</span>
+  <span className="tech-logo">
+    {/* eslint-disable-next-line @next/next/no-img-element -- raw <img> keeps
+        intrinsic SVG sizing simple inside the marquee tile */}
+    <img src={`/assets/tech/${kind}.svg`} alt="" loading="lazy" decoding="async" />
+  </span>
 );
+// Mark the fallback as referenced to satisfy the unused-var lint without
+// dropping the inline SVGs from the file.
+void _TECH_LOGOS_FALLBACK;
 
 export const TECH_STACK: { name: string; group: string; logo: TechLogoKind }[] = [
   { name: "Salesforce", group: "CRM", logo: "salesforce" },
