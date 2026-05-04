@@ -26,21 +26,23 @@ export const VeliorMark = ({ size = 36 }: { size?: number }) => {
   );
 };
 
-export const SalesforcePartnerBadge = ({ compact = false }: { compact?: boolean }) => (
-  <div className="sf-badge" style={compact ? { padding: "8px 12px" } : undefined}>
-    <svg width="22" height="16" viewBox="0 0 32 22" fill="none">
-      <path
-        d="M19.5 3.8c1.4-1.5 3.4-2.4 5.6-2.4 3 0 5.6 1.7 6.9 4.1.7-.3 1.5-.5 2.3-.5 3.1 0 5.7 2.6 5.7 5.7 0 3.2-2.6 5.7-5.7 5.7-.4 0-.8 0-1.1-.1-.7 1.7-2.5 2.9-4.5 2.9-.9 0-1.7-.2-2.4-.6-1.3 2.1-3.6 3.5-6.3 3.5-2.7 0-5.1-1.5-6.4-3.7-.6.1-1.2.2-1.8.2-4.5 0-8.1-3.7-8.1-8.2 0-3 1.6-5.6 4-7-1.5-3.4 1-7.4 4.7-7.4 2.3 0 4.3 1.4 5.1 3.4 1-1.7 2.9-2.9 5-2.9 1.5 0 2.8.6 3.8 1.5z"
-        transform="translate(-2 1) scale(0.85)"
-        fill="#00A1E0"
-      />
-    </svg>
-    <div className="sf-badge-text">
-      <div className="sf-badge-k">Salesforce</div>
-      <div className="sf-badge-v">Consulting Partner</div>
-    </div>
-  </div>
-);
+const SF_BADGE_W = 1024;
+const SF_BADGE_H = 576;
+
+export const SalesforcePartnerBadge = ({ compact = false }: { compact?: boolean }) => {
+  const h = compact ? 56 : 96;
+  const w = Math.round(h * (SF_BADGE_W / SF_BADGE_H));
+  return (
+    <Image
+      src="/assets/salesforce-partner.webp"
+      alt="Salesforce Consulting Partner"
+      width={w}
+      height={h}
+      sizes={`${w}px`}
+      style={{ height: h, width: w, display: "inline-block" }}
+    />
+  );
+};
 
 type RevealProps = {
   children: ReactNode;
