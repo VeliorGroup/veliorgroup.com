@@ -1218,6 +1218,7 @@ button { font-family: inherit; cursor: pointer; }
 .about-stat {
   background: rgba(10, 10, 64, 0.5);
   padding: 36px 24px;
+  text-align: center;
 }
 .about-stat-v {
   font-size: 56px; line-height: 1; font-weight: 600;
