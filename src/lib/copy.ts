@@ -46,7 +46,7 @@ export const COPY = {
       items: [
         {
           n: "01",
-          t: "Salesforce ecosystem",
+          t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau and Agentforce — implemented, integrated, and tuned for ROI.",
           bullets: ["Implementation & migration", "Lightning & Apex development", "Reporting & dashboards", "Agentforce & AI agents"],
         },
@@ -224,7 +224,7 @@ export const COPY = {
       items: [
         {
           n: "01",
-          t: "Ecosistema Salesforce",
+          t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau e Agentforce — implementati, integrati e ottimizzati per il ROI.",
           bullets: ["Implementazione & migrazione", "Sviluppo Lightning & Apex", "Reportistica & dashboard", "Agentforce & AI agents"],
         },
