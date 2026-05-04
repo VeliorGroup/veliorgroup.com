@@ -12,7 +12,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="container footer-inner">
         <div>
-          <VeliorMark size={24} />
+          <VeliorMark size={40} />
           <p className="footer-tagline">{t.footer.tagline}</p>
           <SalesforcePartnerBadge compact />
         </div>

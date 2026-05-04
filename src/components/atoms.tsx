@@ -8,8 +8,8 @@ const LOGO_W = 2381;
 const LOGO_H = 719;
 const LOGO_RATIO = LOGO_W / LOGO_H;
 
-export const VeliorMark = ({ size = 22 }: { size?: number }) => {
-  const h = size + 10;
+export const VeliorMark = ({ size = 36 }: { size?: number }) => {
+  const h = size + 14;
   const w = Math.round(h * LOGO_RATIO);
   return (
     <Link href="/" className="velior-mark" data-route="home" style={{ fontSize: size }}>
