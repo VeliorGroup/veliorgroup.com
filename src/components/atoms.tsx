@@ -366,16 +366,18 @@ export const TechLogo = ({ kind }: { kind: TechLogoKind }) => (
 void _TECH_LOGOS_FALLBACK;
 
 export const TECH_STACK: { name: string; group: string; logo: TechLogoKind }[] = [
-  { name: "Salesforce", group: "CRM", logo: "salesforce" },
-  { name: "Sales Cloud", group: "CRM", logo: "salescloud" },
-  { name: "Service Cloud", group: "CRM", logo: "servicecloud" },
-  { name: "Marketing Cloud", group: "CRM", logo: "marketingcloud" },
-  { name: "Data Cloud", group: "Data", logo: "datacloud" },
-  { name: "Agentforce", group: "AI", logo: "agentforce" },
-  { name: "Tableau", group: "BI", logo: "tableau" },
-  { name: "MuleSoft", group: "iPaaS", logo: "mulesoft" },
+  { name: "Salesforce", group: "Salesforce", logo: "salesforce" },
+  { name: "Sales Cloud", group: "Salesforce", logo: "salescloud" },
+  { name: "Service Cloud", group: "Salesforce", logo: "servicecloud" },
+  { name: "Marketing Cloud", group: "Salesforce", logo: "marketingcloud" },
+  { name: "Data Cloud", group: "Salesforce", logo: "datacloud" },
+  { name: "Agentforce", group: "Salesforce", logo: "agentforce" },
+  { name: "Tableau", group: "Salesforce", logo: "tableau" },
+  { name: "MuleSoft", group: "Salesforce", logo: "mulesoft" },
   { name: "n8n", group: "iPaaS", logo: "n8n" },
   { name: "Make", group: "iPaaS", logo: "make" },
+  { name: "OpenRouter", group: "AI", logo: "openrouter" },
+  { name: "LangChain", group: "AI", logo: "langchain" },
   { name: "Next.js", group: "Frontend", logo: "nextjs" },
   { name: "Angular", group: "Frontend", logo: "angular" },
   { name: "Vue.js", group: "Frontend", logo: "vue" },
@@ -387,6 +389,4 @@ export const TECH_STACK: { name: string; group: string; logo: TechLogoKind }[] =
   { name: "PostgreSQL", group: "Data", logo: "postgresql" },
   { name: "MongoDB", group: "Data", logo: "mongodb" },
   { name: "Redis", group: "Data", logo: "redis" },
-  { name: "OpenRouter", group: "AI", logo: "openrouter" },
-  { name: "LangChain", group: "AI", logo: "langchain" },
 ];

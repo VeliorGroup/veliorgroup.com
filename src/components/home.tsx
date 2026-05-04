@@ -78,7 +78,7 @@ export const Hero = () => {
   );
 };
 
-const TECH_GROUP_ORDER = ["CRM", "AI", "Data", "BI", "iPaaS", "Frontend", "Backend"] as const;
+const TECH_GROUP_ORDER = ["Salesforce", "iPaaS", "AI", "Frontend", "Backend", "Data"] as const;
 
 export const TechStack = () => {
   const { t } = useLang();
