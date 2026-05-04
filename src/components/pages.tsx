@@ -3,6 +3,7 @@
 import { useLang } from "@/lib/lang";
 import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading } from "./atoms";
 import { ContactCTA, ProcessSection } from "./shared";
+import { WorldMap } from "./WorldMap";
 
 const WA_AL = "355696555559";
 const WA_IT = "393203238814";
@@ -205,6 +206,10 @@ export const ContactContent = () => {
           </a>
         </Reveal>
         </div>
+
+        <Reveal delay={300} className="contact-map-wrap">
+          <WorldMap />
+        </Reveal>
       </div>
     </section>
   );
