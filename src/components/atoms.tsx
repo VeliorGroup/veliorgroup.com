@@ -201,20 +201,32 @@ type TechLogoKind =
   | "angular"
   | "vue"
   | "tailwind"
+  | "react"
+  | "reactnative"
+  | "svelte"
+  | "shadcn"
+  | "expo"
+  | "flutter"
   | "nodejs"
   | "fastapi"
   | "python"
   | "go"
+  | "nestjs"
+  | "django"
   | "postgresql"
   | "mongodb"
   | "redis"
+  | "supabase"
+  | "vercel"
+  | "aws"
+  | "googlecloud"
   | "openrouter"
   | "langchain";
 
 // Logos live as standalone SVG files in /public/assets/tech/<kind>.svg.
 // The unused TECH_LOGOS map below is kept as a fallback for when the file
 // isn't reachable, but the runtime path is the <img> below.
-const _TECH_LOGOS_FALLBACK: Record<TechLogoKind, ReactNode> = {
+const _TECH_LOGOS_FALLBACK: Partial<Record<TechLogoKind, ReactNode>> = {
   salesforce: (
     <svg viewBox="0 0 32 22" fill="#00A1E0">
       <path d="M13.3 2.4c1-1 2.3-1.6 3.8-1.6 2 0 3.7 1.1 4.6 2.7.8-.4 1.7-.6 2.7-.6 3.5 0 6.4 2.9 6.4 6.4 0 .9-.2 1.7-.5 2.5 1.1.5 1.8 1.6 1.8 2.9 0 1.7-1.4 3.1-3.1 3.1-.2 0-.4 0-.6-.1-.6 2.2-2.6 3.8-5 3.8-1 0-1.9-.3-2.7-.8-.8 1.7-2.5 2.8-4.5 2.8s-3.8-1.2-4.6-2.9c-.5.1-1 .2-1.6.2-2.4 0-4.4-1.8-4.7-4.1C2.6 16.1 1 14.4 1 12.3c0-1.4.7-2.7 1.8-3.4-.2-.5-.4-1.1-.4-1.7C2.4 4.5 4.5 2.4 7 2.4c1.5 0 2.7.7 3.5 1.7.7-1 1.8-1.7 3.1-1.7" />
@@ -379,14 +391,26 @@ export const TECH_STACK: { name: string; group: string; logo: TechLogoKind }[] =
   { name: "OpenRouter", group: "AI", logo: "openrouter" },
   { name: "LangChain", group: "AI", logo: "langchain" },
   { name: "Next.js", group: "Frontend", logo: "nextjs" },
+  { name: "React", group: "Frontend", logo: "react" },
   { name: "Angular", group: "Frontend", logo: "angular" },
   { name: "Vue.js", group: "Frontend", logo: "vue" },
+  { name: "Svelte", group: "Frontend", logo: "svelte" },
   { name: "Tailwind", group: "Frontend", logo: "tailwind" },
+  { name: "shadcn/ui", group: "Frontend", logo: "shadcn" },
+  { name: "React Native", group: "Mobile", logo: "reactnative" },
+  { name: "Expo", group: "Mobile", logo: "expo" },
+  { name: "Flutter", group: "Mobile", logo: "flutter" },
   { name: "Node.js", group: "Backend", logo: "nodejs" },
+  { name: "NestJS", group: "Backend", logo: "nestjs" },
   { name: "FastAPI", group: "Backend", logo: "fastapi" },
+  { name: "Django", group: "Backend", logo: "django" },
   { name: "Python", group: "Backend", logo: "python" },
   { name: "Go", group: "Backend", logo: "go" },
   { name: "PostgreSQL", group: "Data", logo: "postgresql" },
+  { name: "Supabase", group: "Data", logo: "supabase" },
   { name: "MongoDB", group: "Data", logo: "mongodb" },
   { name: "Redis", group: "Data", logo: "redis" },
+  { name: "Vercel", group: "Hosting", logo: "vercel" },
+  { name: "AWS", group: "Hosting", logo: "aws" },
+  { name: "Google Cloud", group: "Hosting", logo: "googlecloud" },
 ];

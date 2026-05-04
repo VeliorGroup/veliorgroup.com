@@ -172,7 +172,7 @@ export const ContactContent = () => {
             <span className="channel-flag" aria-hidden>🇮🇹</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.italy} · WhatsApp</span>
-              <span className="channel-v">0039 320 323 8814</span>
+              <span className="channel-v">+39 320 323 8814</span>
             </span>
             <span className="channel-icon"><WhatsAppGlyph /></span>
           </a>
@@ -181,12 +181,19 @@ export const ContactContent = () => {
             <span className="channel-flag" aria-hidden>🇦🇱</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.albania} · WhatsApp</span>
-              <span className="channel-v">00355 69 655 5559</span>
+              <span className="channel-v">+355 69 655 5559</span>
             </span>
             <span className="channel-icon"><WhatsAppGlyph /></span>
           </a>
 
-          <a className="channel-row" href={`mailto:${t.contact.detail.email}`}>
+          <a
+            className="channel-row"
+            href={`mailto:${t.contact.detail.email}`}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `mailto:${t.contact.detail.email}`;
+            }}
+          >
             <span className="channel-flag" aria-hidden>✉</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.email}</span>

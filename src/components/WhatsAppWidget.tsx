@@ -57,7 +57,7 @@ export const WhatsAppWidget = () => {
           <span className="wa-option-flag" aria-hidden>🇮🇹</span>
           <span className="wa-option-body">
             <span className="wa-option-k">{t.ui.italy}</span>
-            <span className="wa-option-v">0039 320 323 8814</span>
+            <span className="wa-option-v">+39 320 323 8814</span>
           </span>
           <span className="wa-option-arrow">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -70,7 +70,7 @@ export const WhatsAppWidget = () => {
           <span className="wa-option-flag" aria-hidden>🇦🇱</span>
           <span className="wa-option-body">
             <span className="wa-option-k">{t.ui.albania}</span>
-            <span className="wa-option-v">00355 69 655 5559</span>
+            <span className="wa-option-v">+355 69 655 5559</span>
           </span>
           <span className="wa-option-arrow">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
