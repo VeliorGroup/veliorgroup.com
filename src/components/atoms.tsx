@@ -214,6 +214,7 @@ type TechLogoKind =
   | "nestjs"
   | "django"
   | "postgresql"
+  | "mysql"
   | "mongodb"
   | "redis"
   | "supabase"
@@ -419,6 +420,7 @@ export const TECH_STACK: { name: string; group: string; logo: TechLogoKind }[] =
   { name: "Python", group: "Backend", logo: "python" },
   { name: "Go", group: "Backend", logo: "go" },
   { name: "PostgreSQL", group: "Data", logo: "postgresql" },
+  { name: "MySQL", group: "Data", logo: "mysql" },
   { name: "Supabase", group: "Data", logo: "supabase" },
   { name: "MongoDB", group: "Data", logo: "mongodb" },
   { name: "Redis", group: "Data", logo: "redis" },

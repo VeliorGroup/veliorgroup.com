@@ -4,6 +4,7 @@ import { useLang } from "@/lib/lang";
 import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading } from "./atoms";
 import { ContactCTA, ProcessSection } from "./shared";
 import { WorldMap } from "./WorldMap";
+import { SalesforceFlower } from "./SalesforceFlower";
 
 const WA_AL = "355696555559";
 const WA_IT = "393203238814";
@@ -107,6 +108,18 @@ export const ServicesContent = () => {
                   </li>
                 ))}
               </ul>
+              {i === 0 && (
+                <div className="sf-flower-wrap">
+                  <Reveal delay={120}>
+                    <div className="sf-flower-head">
+                      <Eyebrow>{t.salesforce.eyebrow}</Eyebrow>
+                      <h3 className="h2 sf-flower-title">{t.salesforce.title}</h3>
+                      <p className="body sf-flower-lede">{t.salesforce.lede}</p>
+                    </div>
+                  </Reveal>
+                  <SalesforceFlower />
+                </div>
+              )}
             </div>
           </div>
         </section>

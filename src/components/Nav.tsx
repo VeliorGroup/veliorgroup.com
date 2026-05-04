@@ -13,6 +13,7 @@ const LANGS: { code: Lang; label: string; flag: string }[] = [
   { code: "sq", label: "Shqip", flag: "🇦🇱" },
   { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "fr", label: "Français", flag: "🇫🇷" },
+  { code: "ar", label: "العربية", flag: "🇸🇦" },
 ];
 
 const LangPicker = () => {

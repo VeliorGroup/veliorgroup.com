@@ -73,13 +73,14 @@ export const metadata: Metadata = {
       "sq-AL": SITE_URL,
       "de-CH": SITE_URL,
       "fr-CH": SITE_URL,
+      "ar": SITE_URL,
       "x-default": SITE_URL,
     },
   },
   openGraph: {
     type: "website",
     locale: "it_IT",
-    alternateLocale: ["en_US", "en_GB", "sq_AL", "de_CH", "fr_CH"],
+    alternateLocale: ["en_US", "en_GB", "sq_AL", "de_CH", "fr_CH", "ar_SA"],
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_TITLE,
@@ -208,7 +209,7 @@ const WEBSITE_JSONLD = {
   url: SITE_URL,
   name: SITE_NAME,
   description: SITE_DESCRIPTION,
-  inLanguage: ["it", "en", "sq", "de", "fr"],
+  inLanguage: ["it", "en", "sq", "de", "fr", "ar"],
   publisher: { "@id": `${SITE_URL}#organization` },
 };
 
