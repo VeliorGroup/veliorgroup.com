@@ -17,7 +17,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = (typeof window !== "undefined" ? localStorage.getItem("velior:lang") : null) as Lang | null;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate from localStorage after mount
-    if (saved === "en" || saved === "it" || saved === "sq") setLangState(saved);
+    if (saved === "en" || saved === "it" || saved === "sq" || saved === "de" || saved === "fr") setLangState(saved);
   }, []);
 
   useEffect(() => {
