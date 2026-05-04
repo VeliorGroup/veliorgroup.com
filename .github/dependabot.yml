@@ -9,6 +9,11 @@ updates:
       timezone: "Europe/Rome"
     open-pull-requests-limit: 10
     versioning-strategy: "increase"
+    ignore:
+      # eslint 10 is incompatible with the current eslint-config-next.
+      # Re-evaluate when Next.js ships eslint 10 support.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
     groups:
       next:
         patterns:
