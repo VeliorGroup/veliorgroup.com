@@ -511,7 +511,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: 48px;
 }
 .hero-stats {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   margin-top: 96px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -556,9 +556,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 720px) {
   .hero { padding: 140px 0 80px; min-height: auto; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
-  .hero-stat:nth-child(2) { border-right: none; }
-  .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .hero-stats { grid-template-columns: 1fr; }
+  .hero-stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .hero-stat:last-child { border-bottom: none; }
 }
 
 /* === HERO SF BADGE === */

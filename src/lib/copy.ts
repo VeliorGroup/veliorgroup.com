@@ -20,7 +20,6 @@ export const COPY = {
       stats: [
         { v: "20+", l: "Closed projects" },
         { v: "100+", l: "Salesforce certifications" },
-        { v: "40%", l: "Avg. ops time reclaimed" },
         { v: "1", l: "Office · Tirana" },
       ],
     },
@@ -142,7 +141,7 @@ export const COPY = {
       tagline: "CRM, automation, and AI engineered for growth.",
       sections: [
         { t: "Company", l: [["About", "about"], ["Services", "services"], ["Contact", "contact"]] as [string, string][] },
-        { t: "Capabilities", l: [["Salesforce", "services"], ["Automation", "services"], ["Full-stack", "services"], ["AI & agents", "services"]] as [string, string][] },
+        { t: "Capabilities", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agents", "services"], ["Automation", "services"]] as [string, string][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Privacy",
@@ -197,7 +196,6 @@ export const COPY = {
       stats: [
         { v: "20+", l: "Progetti chiusi" },
         { v: "100+", l: "Certificazioni Salesforce" },
-        { v: "40%", l: "Tempo operativo recuperato" },
         { v: "1", l: "Sede · Tirana" },
       ],
     },
@@ -319,7 +317,7 @@ export const COPY = {
       tagline: "CRM, automazione e AI al servizio della crescita.",
       sections: [
         { t: "Azienda", l: [["Chi siamo", "about"], ["Servizi", "services"], ["Contatti", "contact"]] as [string, string][] },
-        { t: "Competenze", l: [["Salesforce", "services"], ["Automazione", "services"], ["Full-stack", "services"], ["AI & agenti", "services"]] as [string, string][] },
+        { t: "Competenze", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agenti", "services"], ["Automazione", "services"]] as [string, string][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Privacy",
