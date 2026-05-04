@@ -1691,7 +1691,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .wa-option {
   display: grid;
-  grid-template-columns: 36px 1fr auto;
+  grid-template-columns: 36px 1fr;
   align-items: center;
   gap: 12px;
   width: 100%;

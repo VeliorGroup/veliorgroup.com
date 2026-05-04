@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
 import { useNavigate } from "@/lib/router";
 import {
-  Arrow,
   Eyebrow,
   Reveal,
   SalesforcePartnerBadge,
@@ -56,7 +55,7 @@ export const Hero = () => {
         <Reveal delay={380}>
           <div className="hero-ctas">
             <button className="btn btn-gradient" onClick={() => navigate("contact")}>
-              {t.hero.ctaPrimary} <Arrow />
+              {t.hero.ctaPrimary}
             </button>
             <button className="btn btn-ghost" onClick={() => navigate("services")}>
               {t.hero.ctaSecondary}
@@ -198,7 +197,7 @@ export const ServicesSection = () => {
                 ))}
               </ul>
               <button className="btn-link" onClick={() => navigate("services")}>
-                {t.ui.learnMore} <Arrow size={12} />
+                {t.ui.learnMore}
               </button>
             </Reveal>
           ))}

@@ -59,11 +59,6 @@ export const WhatsAppWidget = () => {
             <span className="wa-option-k">{t.ui.italy}</span>
             <span className="wa-option-v">+39 320 323 8814</span>
           </span>
-          <span className="wa-option-arrow">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7 H12 M8 3 L12 7 L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
         </button>
 
         <button className="wa-option" onClick={() => open_(WA_AL)}>
@@ -71,11 +66,6 @@ export const WhatsAppWidget = () => {
           <span className="wa-option-body">
             <span className="wa-option-k">{t.ui.albania}</span>
             <span className="wa-option-v">+355 69 655 5559</span>
-          </span>
-          <span className="wa-option-arrow">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7 H12 M8 3 L12 7 L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
           </span>
         </button>
 

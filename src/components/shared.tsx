@@ -2,7 +2,7 @@
 
 import { useLang } from "@/lib/lang";
 import { useNavigate } from "@/lib/router";
-import { Arrow, Reveal, SectionHeading } from "./atoms";
+import { Reveal, SectionHeading } from "./atoms";
 
 export const ProcessSection = () => {
   const { t } = useLang();
@@ -41,7 +41,7 @@ export const ContactCTA = () => {
             <Reveal delay={120}>
               <div className="contact-cta-actions">
                 <button className="btn btn-gradient" onClick={() => navigate("contact")}>
-                  {t.nav.cta} <Arrow />
+                  {t.nav.cta}
                 </button>
                 <a className="btn btn-ghost" href="mailto:info@veliorgroup.com">
                   info@veliorgroup.com
