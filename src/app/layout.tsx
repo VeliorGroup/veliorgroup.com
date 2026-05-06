@@ -87,9 +87,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/assets/velior-logo.webp",
-        width: 1200,
-        height: 630,
+        url: "/assets/velior-logo-dark.webp",
+        width: 2380,
+        height: 719,
         alt: "Velior Group · Salesforce Consulting Partner",
       },
     ],
