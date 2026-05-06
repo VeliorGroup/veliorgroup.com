@@ -1368,7 +1368,25 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* === ABOUT === */
-.about-stats-section { padding-top: 60px; }
+.about-stats-section { padding-top: 60px; position: relative; overflow: hidden; }
+.about-stats-section::before {
+  content: "";
+  position: absolute;
+  width: 600px; height: 600px;
+  top: -150px; left: -200px;
+  background: radial-gradient(circle, rgba(3,236,233,0.14), transparent 60%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+.about-stats-section::after {
+  content: "";
+  position: absolute;
+  width: 600px; height: 600px;
+  top: -150px; right: -200px;
+  background: radial-gradient(circle, rgba(125,48,243,0.12), transparent 60%);
+  filter: blur(70px);
+  pointer-events: none;
+}
 .about-stats-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
   background: var(--line);
@@ -1394,6 +1412,18 @@ button { font-family: inherit; cursor: pointer; }
 .values-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   margin-top: 64px;
+  position: relative;
+}
+.values-grid::before {
+  content: "";
+  position: absolute;
+  width: 700px; height: 700px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(125,48,243,0.10), transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
 }
 @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
 .value-card {
@@ -1425,7 +1455,19 @@ button { font-family: inherit; cursor: pointer; }
   padding: 100px 0;
   border-bottom: 1px solid var(--line);
   position: relative;
+  overflow: hidden;
 }
+.service-deep::before {
+  content: "";
+  position: absolute;
+  width: 700px; height: 700px;
+  top: 50%; transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(125,48,243,0.13), transparent 60%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+.service-deep:nth-child(odd)::before  { left: -250px; }
+.service-deep:nth-child(even)::before { right: -250px; background: radial-gradient(circle, rgba(3,236,233,0.11), transparent 60%); }
 .service-deep-grid {
   display: grid; grid-template-columns: 280px 1fr; gap: 80px; align-items: start;
 }
