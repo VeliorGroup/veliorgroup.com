@@ -68,12 +68,6 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
     languages: {
       "it-IT": SITE_URL,
-      "en-US": SITE_URL,
-      "en-GB": SITE_URL,
-      "sq-AL": SITE_URL,
-      "de-CH": SITE_URL,
-      "fr-CH": SITE_URL,
-      "ar": SITE_URL,
       "x-default": SITE_URL,
     },
   },
@@ -215,11 +209,8 @@ const WEBSITE_JSONLD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={poppins.variable}>
+    <html lang="en" className={poppins.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger -- inline JSON-LD payload built from trusted constants
@@ -232,9 +223,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body data-density="compact">
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <LangProvider>
           <Nav />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
           <WhatsAppWidget />
         </LangProvider>

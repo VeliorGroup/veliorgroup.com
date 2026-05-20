@@ -29,7 +29,7 @@ export const VeliorMark = ({ size = 36 }: { size?: number }) => {
 const SF_BADGE_W = 1024;
 const SF_BADGE_H = 576;
 
-export const SalesforcePartnerBadge = ({ compact = false }: { compact?: boolean }) => {
+export const SalesforcePartnerBadge = ({ compact = false, priority = false }: { compact?: boolean; priority?: boolean }) => {
   const h = compact ? 56 : 96;
   const w = Math.round(h * (SF_BADGE_W / SF_BADGE_H));
   return (
@@ -38,6 +38,7 @@ export const SalesforcePartnerBadge = ({ compact = false }: { compact?: boolean 
       alt="Salesforce Consulting Partner"
       width={w}
       height={h}
+      priority={priority}
       sizes={`${w}px`}
       style={{ height: h, width: w, display: "inline-block" }}
     />

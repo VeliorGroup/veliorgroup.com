@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/lang";
 import type { Lang } from "@/lib/copy";
+import Link from "next/link";
 import { useNavigate, type Route } from "@/lib/router";
 import { VeliorMark } from "./atoms";
 
@@ -120,9 +121,9 @@ export const Nav = () => {
         </nav>
         <div className="nav-actions">
           <LangPicker />
-          <button className="btn btn-gradient nav-cta" onClick={() => navigate("contact")}>
+          <Link className="btn btn-gradient nav-cta" href="/contact">
             {t.nav.cta}
-          </button>
+          </Link>
           <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
             <span />
             <span />
@@ -131,7 +132,7 @@ export const Nav = () => {
         </div>
       </div>
       {open && (
-        <div className="nav-mobile">
+        <nav className="nav-mobile" aria-label="Menu mobile">
           {ROUTES.map(({ key, path }) => (
             <a
               key={key}
@@ -146,17 +147,15 @@ export const Nav = () => {
               {t.nav[key]}
             </a>
           ))}
-          <button
+          <Link
             className="btn btn-gradient"
+            href="/contact"
             style={{ marginTop: 16 }}
-            onClick={() => {
-              navigate("contact");
-              setOpen(false);
-            }}
+            onClick={() => setOpen(false)}
           >
             {t.nav.cta}
-          </button>
-        </div>
+          </Link>
+        </nav>
       )}
     </header>
   );

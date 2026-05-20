@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/lang";
-import { useNavigate } from "@/lib/router";
+import Link from "next/link";
 import { Reveal, SectionHeading } from "./atoms";
 
 export const ProcessSection = () => {
@@ -27,7 +27,6 @@ export const ProcessSection = () => {
 
 export const ContactCTA = () => {
   const { t } = useLang();
-  const navigate = useNavigate();
   return (
     <section className="contact-cta">
       <div className="container">
@@ -40,9 +39,9 @@ export const ContactCTA = () => {
             </Reveal>
             <Reveal delay={120}>
               <div className="contact-cta-actions">
-                <button className="btn btn-gradient" onClick={() => navigate("contact")}>
+                <Link className="btn btn-gradient" href="/contact">
                   {t.nav.cta}
-                </button>
+                </Link>
                 <a className="btn btn-ghost" href="mailto:info@veliorgroup.com">
                   info@veliorgroup.com
                 </a>

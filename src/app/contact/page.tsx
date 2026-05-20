@@ -15,6 +15,38 @@ export const metadata: Metadata = {
   },
 };
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://veliorgroup.com" },
+    { "@type": "ListItem", position: 2, name: "Contatti", item: "https://veliorgroup.com/contact" },
+  ],
+};
+
+const CONTACT_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://veliorgroup.com/contact#contactpage",
+  name: "Contatta Velior Group",
+  url: "https://veliorgroup.com/contact",
+  description: "Contatta Velior Group per consulenza Salesforce, sviluppo software e automazione.",
+};
+
 export default function ContactPage() {
-  return <ContactContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- inline JSON-LD breadcrumb
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- inline JSON-LD contact page
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(CONTACT_JSONLD) }}
+      />
+      <ContactContent />
+    </>
+  );
 }

@@ -15,6 +15,24 @@ export const metadata: Metadata = {
   },
 };
 
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://veliorgroup.com" },
+    { "@type": "ListItem", position: 2, name: "Chi siamo", item: "https://veliorgroup.com/about" },
+  ],
+};
+
 export default function AboutPage() {
-  return <AboutContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- inline JSON-LD breadcrumb
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }}
+      />
+      <AboutContent />
+    </>
+  );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
-import { useNavigate } from "@/lib/router";
+import Link from "next/link";
 import {
   Eyebrow,
   Reveal,
@@ -14,7 +14,6 @@ import {
 
 export const Hero = () => {
   const { t } = useLang();
-  const navigate = useNavigate();
   const orbRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export const Hero = () => {
       <div className="container hero-inner">
         <Reveal>
           <div className="hero-sf-wrap">
-            <SalesforcePartnerBadge />
+            <SalesforcePartnerBadge priority />
           </div>
         </Reveal>
         <Reveal delay={120}>
@@ -50,12 +49,12 @@ export const Hero = () => {
         </Reveal>
         <Reveal delay={380}>
           <div className="hero-ctas">
-            <button className="btn btn-gradient" onClick={() => navigate("contact")}>
+            <Link className="btn btn-gradient" href="/contact">
               {t.hero.ctaPrimary}
-            </button>
-            <button className="btn btn-ghost" onClick={() => navigate("services")}>
+            </Link>
+            <Link className="btn btn-ghost" href="/services">
               {t.hero.ctaSecondary}
-            </button>
+            </Link>
           </div>
         </Reveal>
         <Reveal delay={520}>
@@ -164,7 +163,6 @@ export const PartnerSection = () => {
 
 export const ServicesSection = () => {
   const { t } = useLang();
-  const navigate = useNavigate();
   return (
     <section className="section services-section">
       <div className="container">
@@ -183,9 +181,9 @@ export const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
-              <button className="btn-link" onClick={() => navigate("services")}>
+              <Link className="btn-link" href="/services">
                 {t.ui.learnMore}
-              </button>
+              </Link>
             </Reveal>
           ))}
         </div>

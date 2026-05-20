@@ -8,14 +8,40 @@ const config: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
   async headers() {
     return [
       {
-        source: "/((?!_next/static|_next/image|assets|favicon.ico|icon.svg|icon.png|robots.txt|sitemap.xml).*)",
+        // Asset statici: cache 1 anno immutable
+        source: "/assets/(.*)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, s-maxage=60, stale-while-revalidate=300",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        // Favicon, icon, manifest, robots, sitemap: 1 giorno + 7 giorni stale
+        source: "/(favicon\\.ico|icon\\.svg|icon\\.png|robots\\.txt|sitemap\\.xml)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        // Pagine HTML: 1 ora CDN + 24 ore stale-while-revalidate
+        source: "/((?!_next/static|_next/image|assets|favicon\\.ico|icon\\.svg|icon\\.png|robots\\.txt|sitemap\\.xml).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=3600, stale-while-revalidate=86400",
           },
         ],
       },
