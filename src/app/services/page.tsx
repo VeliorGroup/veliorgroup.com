@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { ServicesContent } from "@/components/pages";
 
 export const metadata: Metadata = {
-  title: "Servizi · Salesforce, AI, automazione e full-stack",
+  title: "Services · Salesforce, AI, Automation & Full-Stack",
   description:
-    "Quattro pilastri Velior: ecosistema Salesforce (Sales/Service/Marketing/Data Cloud, Agentforce, Tableau, MuleSoft), sviluppo full-stack (Next.js, Node, Python, Go), AI & agenti LLM/RAG, automazione iPaaS con n8n e Make.",
+    "Four Velior pillars: Salesforce ecosystem (Sales/Service/Marketing/Data Cloud, Agentforce, Tableau, MuleSoft), full-stack development (Next.js, Node, Python, Go), AI & LLM/RAG agents, iPaaS automation with n8n and Make.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Servizi Velior · Salesforce, AI, automazione, full-stack",
+    title: "Velior Services · Salesforce, AI, Automation, Full-Stack",
     description:
-      "Implementazione Salesforce end-to-end, software custom, agenti AI in produzione e workflow iPaaS su n8n / Make.",
+      "End-to-end Salesforce implementation, custom software, production AI agents and iPaaS workflows on n8n / Make.",
     url: "/services",
     type: "website",
   },
@@ -20,7 +20,7 @@ const BREADCRUMB_JSONLD = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://veliorgroup.com" },
-    { "@type": "ListItem", position: 2, name: "Servizi", item: "https://veliorgroup.com/services" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://veliorgroup.com/services" },
   ],
 };
 

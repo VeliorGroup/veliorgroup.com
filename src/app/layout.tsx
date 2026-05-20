@@ -15,9 +15,9 @@ const poppins = Poppins({
 
 const SITE_URL = "https://veliorgroup.com";
 const SITE_NAME = "Velior Group";
-const SITE_TITLE = "Velior Group · Salesforce Consulting Partner · Italia & Albania";
+const SITE_TITLE = "Velior Group · Salesforce Consulting Partner · Italy & Albania";
 const SITE_DESCRIPTION =
-  "Velior Group è Salesforce Consulting Partner certificato: implementiamo Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Agentforce, MuleSoft e Tableau, sviluppiamo software full-stack (Next.js, Node, Python) e automazioni iPaaS con n8n e Make. Sede a Tirana, lavoriamo con aziende in Italia, Albania e Europa.";
+  "Velior Group is a certified Salesforce Consulting Partner: we implement Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Agentforce, MuleSoft and Tableau, develop full-stack software (Next.js, Node, Python) and iPaaS automations with n8n and Make. Headquartered in Tirana, we work with companies across Italy, Albania and Europe.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     "Python",
     "FastAPI",
     "full-stack development",
-    "consulenza Salesforce",
-    "automazione processi",
-    "sviluppo software custom",
+    "Salesforce consulting",
+    "process automation",
+    "custom software development",
     "Tirana",
     "Velior Group",
   ],
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
     languages: {
-      "it-IT": SITE_URL,
+      "en-US": SITE_URL,
       "x-default": SITE_URL,
     },
   },
   openGraph: {
     type: "website",
-    locale: "it_IT",
+    locale: "en_US",
     alternateLocale: ["en_US", "en_GB", "sq_AL", "de_CH", "fr_CH", "ar_SA"],
     url: SITE_URL,
     siteName: SITE_NAME,
