@@ -29,6 +29,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "Certified across the platform.",
       lede: "From Sales Cloud to Agentforce and Data Cloud: our consultants hold active certifications and ship production work every quarter. Velior is a registered Salesforce Consulting Partner.",
+      stats: [
+        { v: "5", l: "Countries served" },
+        { v: "5", l: "Working languages" },
+        { v: "9", l: "Certification tracks" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -219,6 +224,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "Certificati su tutta la piattaforma.",
       lede: "Da Sales Cloud ad Agentforce e Data Cloud: i nostri consulenti detengono certificazioni attive e rilasciano lavoro in produzione ogni trimestre. Velior è Salesforce Consulting Partner registrato.",
+      stats: [
+        { v: "5", l: "Paesi serviti" },
+        { v: "5", l: "Lingue di lavoro" },
+        { v: "9", l: "Percorsi di certificazione" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -409,6 +419,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "Të çertifikuar në të gjithë platformën.",
       lede: "Nga Sales Cloud te Agentforce dhe Data Cloud: konsulentët tanë mbajnë çertifikime aktive dhe çojnë punë në prodhim çdo tremujor. Velior është Salesforce Consulting Partner i regjistruar.",
+      stats: [
+        { v: "5", l: "Vende të mbuluara" },
+        { v: "5", l: "Gjuhë pune" },
+        { v: "9", l: "Drejtime certifikimi" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -599,6 +614,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "Plattformweit zertifiziert.",
       lede: "Von Sales Cloud bis Agentforce und Data Cloud: unsere Berater haben aktive Zertifizierungen und liefern jedes Quartal Produktion. Velior ist registrierter Salesforce Consulting Partner.",
+      stats: [
+        { v: "5", l: "Bediente Länder" },
+        { v: "5", l: "Arbeitssprachen" },
+        { v: "9", l: "Zertifizierungspfade" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -789,6 +809,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "Certifiés sur toute la plateforme.",
       lede: "De Sales Cloud à Agentforce et Data Cloud : nos consultants détiennent des certifications actives et livrent en production chaque trimestre. Velior est Salesforce Consulting Partner enregistré.",
+      stats: [
+        { v: "5", l: "Pays desservis" },
+        { v: "5", l: "Langues de travail" },
+        { v: "9", l: "Parcours de certification" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",
@@ -979,6 +1004,11 @@ export const COPY = {
       eyebrow: "Salesforce Partner",
       title: "معتمدون عبر المنصة بالكامل.",
       lede: "من Sales Cloud إلى Agentforce و Data Cloud: مستشارونا يحملون شهادات نشطة ويسلّمون الإنتاج كل ربع سنة. Velior شريك Salesforce Consulting Partner مسجّل.",
+      stats: [
+        { v: "5", l: "دول نخدمها" },
+        { v: "5", l: "لغات العمل" },
+        { v: "9", l: "مسارات الشهادات" },
+      ],
       certs: [
         "Salesforce Administrator",
         "Platform Developer I & II",

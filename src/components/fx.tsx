@@ -31,7 +31,7 @@ export const ScrollProgress = () => {
   return <div ref={ref} className="scroll-progress" aria-hidden />;
 };
 
-const SPOTLIGHT_SELECTOR = ".service-card, .value-card, .cert-item, .contact-channels-card";
+const SPOTLIGHT_SELECTOR = ".value-card, .cert-item, .contact-channels-card";
 
 // Tracks the pointer over spotlight-enabled cards and exposes the position as
 // --mx/--my custom properties; the glow itself is pure CSS (see globals.css).
@@ -52,9 +52,11 @@ export const SpotlightFx = () => {
 };
 
 // Animates a numeric stat from 0 to its value when it enters the viewport.
-// SSR renders the final value so SEO and no-JS visitors see real numbers.
+// Only open-ended values ("100+") animate; fixed facts like a founding year
+// or headcount render as-is. SSR renders the final value so SEO and no-JS
+// visitors see real numbers.
 export const CountUp = ({ value, duration = 1400 }: { value: string; duration?: number }) => {
-  const m = value.match(/^(\d+)(.*)$/);
+  const m = value.match(/^(\d+)(.*\+.*)$/);
   const target = m ? parseInt(m[1], 10) : null;
   const suffix = m ? m[2] : "";
   const ref = useRef<HTMLSpanElement | null>(null);

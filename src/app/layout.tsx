@@ -109,10 +109,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
     apple: "/assets/velior-logo.webp",
   },
   formatDetection: {
@@ -215,6 +212,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <JsonLd data={ORGANIZATION_JSONLD} />
         <JsonLd data={WEBSITE_JSONLD} />
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important;filter:none !important}`}</style>
+        </noscript>
       </head>
       <body data-density="compact">
         <a href="#main-content" className="skip-link">Skip to main content</a>

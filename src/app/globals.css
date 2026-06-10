@@ -2335,24 +2335,160 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ============ Cursor spotlight on cards ============ */
-/* --mx/--my are set by SpotlightFx (fx.tsx). Declared after the base card
-   rules so the background-image layers on top of their background-color. */
+/* --mx/--my are set by SpotlightFx (fx.tsx). The glow lives on a dedicated
+   ::after overlay so it fades in/out smoothly and clips to the card radius.
+   service-card is excluded: it already has its own gradient + glow pseudos. */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .service-card:hover,
-  .value-card:hover,
-  .contact-channels-card:hover {
-    background-image: radial-gradient(
-      340px circle at var(--mx, 50%) var(--my, 50%),
-      rgba(125, 48, 243, 0.14),
-      rgba(3, 236, 233, 0.05) 45%,
-      transparent 70%
-    );
+  .value-card,
+  .contact-channels-card,
+  .cert-item {
+    position: relative;
   }
-  .cert-item:hover {
-    background-image: radial-gradient(
-      240px circle at var(--mx, 50%) var(--my, 50%),
+  .value-card::after,
+  .contact-channels-card::after,
+  .cert-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 350ms var(--ease);
+    background: radial-gradient(
+      300px circle at var(--mx, 50%) var(--my, 50%),
       rgba(125, 48, 243, 0.12),
+      rgba(3, 236, 233, 0.04) 45%,
       transparent 70%
     );
   }
+  .value-card:hover::after,
+  .contact-channels-card:hover::after,
+  .cert-item:hover::after {
+    opacity: 1;
+  }
+}
+
+/* ============ Hero: two columns + tech orbit ============ */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+.hero-orbit-wrap {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  max-width: 100%;
+}
+.hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(196, 177, 250, 0.22);
+}
+.hero-ring-1 { inset: calc(50% - 150px); }
+.hero-ring-2 { inset: calc(50% - 230px); }
+.hero-orbit {
+  position: absolute;
+  inset: 0;
+  animation: orbitSpin 60s linear infinite;
+}
+.hero-orbit-b {
+  animation-duration: 90s;
+  animation-direction: reverse;
+}
+.hero-orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px;
+  transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(var(--a) * -1));
+}
+.hero-orbit-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(20, 20, 77, 0.75);
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 32, 0.45);
+  animation: orbitSpin 60s linear infinite reverse;
+}
+.hero-orbit-b .hero-orbit-chip {
+  animation-duration: 90s;
+  animation-direction: normal;
+}
+.hero-orbit-chip .tech-logo {
+  width: 26px;
+  height: 26px;
+}
+.hero-orbit-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 10, 64, 0.7);
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  padding: 18px 22px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 80px rgba(125, 48, 243, 0.25);
+}
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 1020px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+}
+
+/* ============ Service card icons ============ */
+.service-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+.service-card-icon-1 { background: linear-gradient(135deg, #7d30f3, #9c5bff); }
+.service-card-icon-2 { background: linear-gradient(135deg, #5bafff, #00a1e0); }
+.service-card-icon-3 { background: linear-gradient(135deg, #9c5bff, #03ece9); }
+.service-card-icon-4 { background: linear-gradient(135deg, #03ece9, #7d30f3); }
+
+/* ============ World map: secondary market pins ============ */
+.world-map-market {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(3, 236, 233, 0.8), 0 0 0 3px rgba(3, 236, 233, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+/* ============ Process: stronger track ============ */
+.process-line { opacity: 0.65; height: 2px; }
+.process-dot { font-size: 15px; font-weight: 600; }
+
+/* ============ Hero stats: compact row on mobile ============ */
+@media (max-width: 720px) {
+  .hero-stats { grid-template-columns: repeat(3, 1fr); margin-top: 56px; }
+  .hero-stat { padding: 20px 8px; }
+  .hero-stat-v { font-size: clamp(26px, 8vw, 36px); }
+  .hero-stat-l { font-size: 9px; margin-top: 10px; }
 }

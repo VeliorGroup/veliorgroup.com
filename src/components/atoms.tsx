@@ -374,22 +374,12 @@ const _TECH_LOGOS_FALLBACK: Partial<Record<TechLogoKind, ReactNode>> = {
   ),
 };
 
-const SALESFORCE_FAMILY: TechLogoKind[] = [
-  "salesforce",
-  "salescloud",
-  "servicecloud",
-  "marketingcloud",
-  "datacloud",
-  "agentforce",
-];
-
 export const TechLogo = ({ kind }: { kind: TechLogoKind }) => {
-  const file = SALESFORCE_FAMILY.includes(kind) ? "salesforce" : kind;
   return (
     <span className="tech-logo">
       {/* eslint-disable-next-line @next/next/no-img-element -- raw <img> keeps
           intrinsic SVG sizing simple inside the marquee tile */}
-      <img src={`/assets/tech/${file}.svg`} alt="" loading="lazy" decoding="async" />
+      <img src={`/assets/tech/${kind}.svg`} alt="" loading="lazy" decoding="async" />
     </span>
   );
 };
