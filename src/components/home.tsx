@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
 import Link from "next/link";
 import {
@@ -14,45 +14,6 @@ import {
   type ServiceIconKind,
 } from "./atoms";
 import { CountUp } from "./fx";
-
-const ORBIT_TECH_A = ["salesforce", "agentforce", "mulesoft", "datacloud"] as const;
-const ORBIT_TECH_B = ["react", "python", "n8n", "make"] as const;
-
-const HeroOrbit = () => (
-  <div className="hero-orbit-wrap" aria-hidden>
-    <span className="hero-ring hero-ring-1" />
-    <span className="hero-ring hero-ring-2" />
-    <div className="hero-orbit hero-orbit-a">
-      {ORBIT_TECH_A.map((k, i) => (
-        <span
-          key={k}
-          className="hero-orbit-item"
-          style={{ "--a": `${i * 90}deg`, "--r": "150px" } as CSSProperties}
-        >
-          <span className="hero-orbit-chip">
-            <TechLogo kind={k} />
-          </span>
-        </span>
-      ))}
-    </div>
-    <div className="hero-orbit hero-orbit-b">
-      {ORBIT_TECH_B.map((k, i) => (
-        <span
-          key={k}
-          className="hero-orbit-item"
-          style={{ "--a": `${i * 90 + 45}deg`, "--r": "230px" } as CSSProperties}
-        >
-          <span className="hero-orbit-chip">
-            <TechLogo kind={k} />
-          </span>
-        </span>
-      ))}
-    </div>
-    <div className="hero-orbit-core">
-      <SalesforcePartnerBadge priority />
-    </div>
-  </div>
-);
 
 export const Hero = () => {
   const { t } = useLang();
@@ -76,38 +37,38 @@ export const Hero = () => {
       <div className="hero-bg-grad" />
       <div className="hero-bg-grid" />
       <div className="container hero-inner">
-        <div className="hero-copy">
-          <Reveal delay={120}>
-            <h1 className="h-display hero-title">
-              {t.hero.title[0]} <span className="accent">{t.hero.title[1]}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={260}>
-            <p className="lede hero-lede">{t.hero.lede}</p>
-          </Reveal>
-          <Reveal delay={380}>
-            <div className="hero-ctas">
-              <Link className="btn btn-gradient" href="/contact">
-                {t.hero.ctaPrimary}
-              </Link>
-              <Link className="btn btn-ghost" href="/services">
-                {t.hero.ctaSecondary}
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={520}>
-            <div className="hero-stats">
-              {t.hero.stats.map((s, i) => (
-                <div key={i} className="hero-stat">
-                  <div className="hero-stat-v"><CountUp value={s.v} /></div>
-                  <div className="hero-stat-l">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={300} className="hero-visual" scale>
-          <HeroOrbit />
+        <Reveal>
+          <div className="hero-sf-wrap">
+            <SalesforcePartnerBadge priority />
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <h1 className="h-display hero-title">
+            {t.hero.title[0]} <span className="accent">{t.hero.title[1]}</span>
+          </h1>
+        </Reveal>
+        <Reveal delay={260}>
+          <p className="lede hero-lede">{t.hero.lede}</p>
+        </Reveal>
+        <Reveal delay={380}>
+          <div className="hero-ctas">
+            <Link className="btn btn-gradient" href="/contact">
+              {t.hero.ctaPrimary}
+            </Link>
+            <Link className="btn btn-ghost" href="/services">
+              {t.hero.ctaSecondary}
+            </Link>
+          </div>
+        </Reveal>
+        <Reveal delay={520}>
+          <div className="hero-stats">
+            {t.hero.stats.map((s, i) => (
+              <div key={i} className="hero-stat">
+                <div className="hero-stat-v"><CountUp value={s.v} /></div>
+                <div className="hero-stat-l">{s.l}</div>
+              </div>
+            ))}
+          </div>
         </Reveal>
       </div>
     </section>
