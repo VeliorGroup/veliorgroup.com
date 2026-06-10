@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AboutContent } from "@/components/pages";
+import { JsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "About Us · Velior, Salesforce & AI Consulting",
@@ -27,11 +28,7 @@ const BREADCRUMB_JSONLD = {
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger -- inline JSON-LD breadcrumb
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }}
-      />
+      <JsonLd data={BREADCRUMB_JSONLD} />
       <AboutContent />
     </>
   );

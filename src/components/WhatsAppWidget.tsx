@@ -2,15 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
-
-const WA_AL = "355696555559";
-const WA_IT = "393203238814";
-
-const WhatsAppGlyph = ({ size = 26 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-    <path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.4-3-1.4-4.6 0-4.6 3.7-8.4 8.4-8.4 4.6 0 8.4 3.7 8.4 8.4-.1 4.6-3.8 8.5-8.4 8.5z" />
-  </svg>
-);
+import { CONTACT, waLink } from "@/lib/contacts";
+import { WhatsAppGlyph } from "./atoms";
 
 export const WhatsAppWidget = () => {
   const { t } = useLang();
@@ -34,7 +27,7 @@ export const WhatsAppWidget = () => {
   }, [open]);
 
   const open_ = (n: string) => {
-    window.open(`https://wa.me/${n}`, "_blank", "noopener,noreferrer");
+    window.open(waLink(n), "_blank", "noopener,noreferrer");
     setOpen(false);
   };
 
@@ -53,19 +46,19 @@ export const WhatsAppWidget = () => {
           </button>
         </div>
 
-        <button className="wa-option" onClick={() => open_(WA_IT)}>
+        <button className="wa-option" onClick={() => open_(CONTACT.whatsapp.it.e164)}>
           <span className="wa-option-flag" aria-hidden>🇮🇹</span>
           <span className="wa-option-body">
             <span className="wa-option-k">{t.ui.italy}</span>
-            <span className="wa-option-v">+39 320 323 8814</span>
+            <span className="wa-option-v">{CONTACT.whatsapp.it.display}</span>
           </span>
         </button>
 
-        <button className="wa-option" onClick={() => open_(WA_AL)}>
+        <button className="wa-option" onClick={() => open_(CONTACT.whatsapp.al.e164)}>
           <span className="wa-option-flag" aria-hidden>🇦🇱</span>
           <span className="wa-option-body">
             <span className="wa-option-k">{t.ui.albania}</span>
-            <span className="wa-option-v">+355 69 655 5559</span>
+            <span className="wa-option-v">{CONTACT.whatsapp.al.display}</span>
           </span>
         </button>
 

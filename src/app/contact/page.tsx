@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactContent } from "@/components/pages";
+import { JsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Contact · Talk to Velior Group",
@@ -36,16 +37,8 @@ const CONTACT_JSONLD = {
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger -- inline JSON-LD breadcrumb
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }}
-      />
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger -- inline JSON-LD contact page
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(CONTACT_JSONLD) }}
-      />
+      <JsonLd data={BREADCRUMB_JSONLD} />
+      <JsonLd data={CONTACT_JSONLD} />
       <ContactContent />
     </>
   );

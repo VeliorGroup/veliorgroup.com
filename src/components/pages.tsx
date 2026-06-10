@@ -1,13 +1,12 @@
 "use client";
 
 import { useLang } from "@/lib/lang";
-import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading } from "./atoms";
+import { CONTACT, waLink } from "@/lib/contacts";
+import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading, WhatsAppGlyph } from "./atoms";
 import { ContactCTA, ProcessSection } from "./shared";
 import { WorldMap } from "./WorldMap";
 import { TechStack } from "./home";
-
-const WA_AL = "355696555559";
-const WA_IT = "393203238814";
+import { CountUp } from "./fx";
 
 export const AboutContent = () => {
   const { t } = useLang();
@@ -36,7 +35,7 @@ export const AboutContent = () => {
           <div className="about-stats-grid">
             {t.about.stats.map((s, i) => (
               <Reveal key={i} delay={i * 80} className="about-stat">
-                <div className="about-stat-v">{s.v}</div>
+                <div className="about-stat-v"><CountUp value={s.v} /></div>
                 <div className="about-stat-l">{s.l}</div>
               </Reveal>
             ))}
@@ -120,12 +119,6 @@ export const ServicesContent = () => {
   );
 };
 
-const WhatsAppGlyph = ({ size = 22 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-    <path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.4-3-1.4-4.6 0-4.6 3.7-8.4 8.4-8.4 4.6 0 8.4 3.7 8.4 8.4-.1 4.6-3.8 8.5-8.4 8.5z" />
-  </svg>
-);
-
 export const ContactContent = () => {
   const { t } = useLang();
   return (
@@ -173,32 +166,25 @@ export const ContactContent = () => {
             <p className="body channels-lede">{t.ui.channelsLede}</p>
           </div>
 
-          <a className="channel-row" href={`https://wa.me/${WA_IT}`} target="_blank" rel="noopener noreferrer">
+          <a className="channel-row" href={waLink(CONTACT.whatsapp.it.e164)} target="_blank" rel="noopener noreferrer">
             <span className="channel-flag" aria-hidden>🇮🇹</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.italy} · WhatsApp</span>
-              <span className="channel-v">+39 320 323 8814</span>
+              <span className="channel-v">{CONTACT.whatsapp.it.display}</span>
             </span>
-            <span className="channel-icon"><WhatsAppGlyph /></span>
+            <span className="channel-icon"><WhatsAppGlyph size={22} /></span>
           </a>
 
-          <a className="channel-row" href={`https://wa.me/${WA_AL}`} target="_blank" rel="noopener noreferrer">
+          <a className="channel-row" href={waLink(CONTACT.whatsapp.al.e164)} target="_blank" rel="noopener noreferrer">
             <span className="channel-flag" aria-hidden>🇦🇱</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.albania} · WhatsApp</span>
-              <span className="channel-v">+355 69 655 5559</span>
+              <span className="channel-v">{CONTACT.whatsapp.al.display}</span>
             </span>
-            <span className="channel-icon"><WhatsAppGlyph /></span>
+            <span className="channel-icon"><WhatsAppGlyph size={22} /></span>
           </a>
 
-          <a
-            className="channel-row"
-            href={`mailto:${t.contact.detail.email}`}
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `mailto:${t.contact.detail.email}`;
-            }}
-          >
+          <a className="channel-row" href={`mailto:${t.contact.detail.email}`}>
             <span className="channel-flag" aria-hidden>✉</span>
             <span className="channel-body">
               <span className="channel-k">{t.ui.email}</span>

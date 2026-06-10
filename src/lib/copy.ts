@@ -1,3 +1,5 @@
+import type { Route } from "./router";
+
 export type Lang = "en" | "it" | "sq" | "de" | "fr" | "ar";
 
 export type Copy = (typeof COPY)[Lang];
@@ -140,8 +142,8 @@ export const COPY = {
     footer: {
       tagline: "CRM, automation, and AI engineered for growth.",
       sections: [
-        { t: "Company", l: [["About", "about"], ["Services", "services"], ["Contact", "contact"]] as [string, string][] },
-        { t: "Capabilities", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agents", "services"], ["Automation", "services"]] as [string, string][] },
+        { t: "Company", l: [["About", "about"], ["Services", "services"], ["Contact", "contact"]] as [string, Route][] },
+        { t: "Capabilities", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agents", "services"], ["Automation", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Privacy",
@@ -330,8 +332,8 @@ export const COPY = {
     footer: {
       tagline: "CRM, automazione e AI al servizio della crescita.",
       sections: [
-        { t: "Azienda", l: [["Chi siamo", "about"], ["Servizi", "services"], ["Contatti", "contact"]] as [string, string][] },
-        { t: "Competenze", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agenti", "services"], ["Automazione", "services"]] as [string, string][] },
+        { t: "Azienda", l: [["Chi siamo", "about"], ["Servizi", "services"], ["Contatti", "contact"]] as [string, Route][] },
+        { t: "Competenze", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agenti", "services"], ["Automazione", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Privacy",
@@ -520,8 +522,8 @@ export const COPY = {
     footer: {
       tagline: "CRM, automatizim dhe AI të ndërtuara për rritje.",
       sections: [
-        { t: "Kompania", l: [["Rreth nesh", "about"], ["Shërbimet", "services"], ["Kontakt", "contact"]] as [string, string][] },
-        { t: "Aftësi", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agentë", "services"], ["Automatizim", "services"]] as [string, string][] },
+        { t: "Kompania", l: [["Rreth nesh", "about"], ["Shërbimet", "services"], ["Kontakt", "contact"]] as [string, Route][] },
+        { t: "Aftësi", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI & agentë", "services"], ["Automatizim", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Privatësia",
@@ -710,8 +712,8 @@ export const COPY = {
     footer: {
       tagline: "CRM, Automatisierung und KI für nachhaltiges Wachstum.",
       sections: [
-        { t: "Unternehmen", l: [["Über uns", "about"], ["Leistungen", "services"], ["Kontakt", "contact"]] as [string, string][] },
-        { t: "Kompetenzen", l: [["Salesforce", "services"], ["Full-Stack", "services"], ["KI & Agenten", "services"], ["Automatisierung", "services"]] as [string, string][] },
+        { t: "Unternehmen", l: [["Über uns", "about"], ["Leistungen", "services"], ["Kontakt", "contact"]] as [string, Route][] },
+        { t: "Kompetenzen", l: [["Salesforce", "services"], ["Full-Stack", "services"], ["KI & Agenten", "services"], ["Automatisierung", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Datenschutz",
@@ -900,8 +902,8 @@ export const COPY = {
     footer: {
       tagline: "CRM, automatisation et IA au service de votre croissance.",
       sections: [
-        { t: "Société", l: [["À propos", "about"], ["Services", "services"], ["Contact", "contact"]] as [string, string][] },
-        { t: "Compétences", l: [["Salesforce", "services"], ["Full-stack", "services"], ["IA & agents", "services"], ["Automatisation", "services"]] as [string, string][] },
+        { t: "Société", l: [["À propos", "about"], ["Services", "services"], ["Contact", "contact"]] as [string, Route][] },
+        { t: "Compétences", l: [["Salesforce", "services"], ["Full-stack", "services"], ["IA & agents", "services"], ["Automatisation", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "Confidentialité",
@@ -1090,8 +1092,8 @@ export const COPY = {
     footer: {
       tagline: "CRM والأتمتة والذكاء الاصطناعي مبنية للنمو.",
       sections: [
-        { t: "الشركة", l: [["من نحن", "about"], ["الخدمات", "services"], ["اتصل بنا", "contact"]] as [string, string][] },
-        { t: "القدرات", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI ووكلاء", "services"], ["الأتمتة", "services"]] as [string, string][] },
+        { t: "الشركة", l: [["من نحن", "about"], ["الخدمات", "services"], ["اتصل بنا", "contact"]] as [string, Route][] },
+        { t: "القدرات", l: [["Salesforce", "services"], ["Full-stack", "services"], ["AI ووكلاء", "services"], ["الأتمتة", "services"]] as [string, Route][] },
       ],
       legal: "© 2026 Velior Group",
       privacy: "الخصوصية",

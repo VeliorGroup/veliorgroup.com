@@ -2316,3 +2316,43 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+
+/* ============ Scroll progress bar ============ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #7d30f3, #03ece9);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: 0 50%;
+  z-index: 120;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+}
+
+/* ============ Cursor spotlight on cards ============ */
+/* --mx/--my are set by SpotlightFx (fx.tsx). Declared after the base card
+   rules so the background-image layers on top of their background-color. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .service-card:hover,
+  .value-card:hover,
+  .contact-channels-card:hover {
+    background-image: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(125, 48, 243, 0.14),
+      rgba(3, 236, 233, 0.05) 45%,
+      transparent 70%
+    );
+  }
+  .cert-item:hover {
+    background-image: radial-gradient(
+      240px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(125, 48, 243, 0.12),
+      transparent 70%
+    );
+  }
+}

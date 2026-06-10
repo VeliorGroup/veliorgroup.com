@@ -11,6 +11,7 @@ import {
   TECH_STACK,
   TechLogo,
 } from "./atoms";
+import { CountUp } from "./fx";
 
 export const Hero = () => {
   const { t } = useLang();
@@ -61,7 +62,7 @@ export const Hero = () => {
           <div className="hero-stats">
             {t.hero.stats.map((s, i) => (
               <div key={i} className="hero-stat">
-                <div className="hero-stat-v">{s.v}</div>
+                <div className="hero-stat-v"><CountUp value={s.v} /></div>
                 <div className="hero-stat-l">{s.l}</div>
               </div>
             ))}
@@ -135,7 +136,7 @@ export const PartnerSection = () => {
               <div className="partner-stats">
                 {t.hero.stats.map((s, i) => (
                   <div key={i} className="partner-stat">
-                    <div className="partner-stat-v">{s.v}</div>
+                    <div className="partner-stat-v"><CountUp value={s.v} /></div>
                     <div className="partner-stat-l">{s.l}</div>
                   </div>
                 ))}

@@ -11,6 +11,11 @@ const PATHS: Record<Route, string> = {
   contact: "/contact",
 };
 
+export const ROUTES = (Object.keys(PATHS) as Route[]).map((key) => ({
+  key,
+  path: PATHS[key],
+}));
+
 export function useNavigate() {
   const router = useRouter();
   return (r: Route) => {

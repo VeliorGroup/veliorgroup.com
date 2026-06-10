@@ -2,9 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/lib/lang";
+import { JsonLd } from "@/lib/jsonld";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { ScrollProgress, SpotlightFx } from "@/components/fx";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -211,19 +213,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable}>
       <head>
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger -- inline JSON-LD payload built from trusted constants
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
-        />
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger -- inline JSON-LD payload built from trusted constants
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSONLD) }}
-        />
+        <JsonLd data={ORGANIZATION_JSONLD} />
+        <JsonLd data={WEBSITE_JSONLD} />
       </head>
       <body data-density="compact">
         <a href="#main-content" className="skip-link">Skip to main content</a>
+        <ScrollProgress />
+        <SpotlightFx />
         <LangProvider>
           <Nav />
           <main id="main-content">{children}</main>

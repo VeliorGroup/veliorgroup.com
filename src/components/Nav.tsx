@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/lang";
 import type { Lang } from "@/lib/copy";
 import Link from "next/link";
-import { useNavigate, type Route } from "@/lib/router";
+import { ROUTES, useNavigate, type Route } from "@/lib/router";
 import { VeliorMark } from "./atoms";
 
 const LANGS: { code: Lang; label: string; flag: string }[] = [
@@ -73,13 +73,6 @@ const LangPicker = () => {
     </div>
   );
 };
-
-const ROUTES: { key: Route; path: string }[] = [
-  { key: "home", path: "/" },
-  { key: "about", path: "/about" },
-  { key: "services", path: "/services" },
-  { key: "contact", path: "/contact" },
-];
 
 export const Nav = () => {
   const { lang, setLang, t } = useLang();

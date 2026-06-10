@@ -1,7 +1,8 @@
 "use client";
 
 import { useLang } from "@/lib/lang";
-import { useNavigate, type Route } from "@/lib/router";
+import { CONTACT } from "@/lib/contacts";
+import { pathOf, useNavigate } from "@/lib/router";
 import { SalesforcePartnerBadge, VeliorMark } from "./atoms";
 
 export const Footer = () => {
@@ -23,10 +24,10 @@ export const Footer = () => {
               {s.l.map(([label, route], j) => (
                 <a
                   key={j}
-                  href={`/${route === "home" ? "" : route}`}
+                  href={pathOf(route)}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate(route as Route);
+                    navigate(route);
                   }}
                   className="footer-link"
                 >
@@ -37,8 +38,8 @@ export const Footer = () => {
           ))}
           <div className="footer-col">
             <div className="footer-col-title">{t.ui.contact}</div>
-            <a className="footer-link" href="mailto:info@veliorgroup.com">
-              info@veliorgroup.com
+            <a className="footer-link" href={`mailto:${CONTACT.email}`}>
+              {CONTACT.email}
             </a>
             <a className="footer-link" href="#">
               LinkedIn

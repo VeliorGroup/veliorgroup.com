@@ -1,6 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/lang";
+import { CONTACT } from "@/lib/contacts";
 import Link from "next/link";
 import { Reveal, SectionHeading } from "./atoms";
 
@@ -42,8 +43,8 @@ export const ContactCTA = () => {
                 <Link className="btn btn-gradient" href="/contact">
                   {t.nav.cta}
                 </Link>
-                <a className="btn btn-ghost" href="mailto:info@veliorgroup.com">
-                  info@veliorgroup.com
+                <a className="btn btn-ghost" href={`mailto:${CONTACT.email}`}>
+                  {CONTACT.email}
                 </a>
               </div>
             </Reveal>
