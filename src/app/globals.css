@@ -640,6 +640,9 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0;
   max-width: 18ch;
   font-weight: 600;
+  /* Sized for the two-column hero: big enough to lead, small enough to
+     keep the headline on ~3 balanced lines instead of one word per line. */
+  font-size: clamp(38px, 4.4vw, 66px);
 }
 .hero-title .accent {
   background: var(--grad-brand);
@@ -2450,6 +2453,8 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 1020px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
+  /* Single column again: let the headline scale back up. */
+  .hero-title { font-size: clamp(40px, 6.4vw, 96px); }
 }
 
 /* ============ Service card icons ============ */
@@ -2469,17 +2474,6 @@ button { font-family: inherit; cursor: pointer; }
 .service-card-icon-2 { background: linear-gradient(135deg, #5bafff, #00a1e0); }
 .service-card-icon-3 { background: linear-gradient(135deg, #9c5bff, #03ece9); }
 .service-card-icon-4 { background: linear-gradient(135deg, #03ece9, #7d30f3); }
-
-/* ============ World map: secondary market pins ============ */
-.world-map-market {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 10px rgba(3, 236, 233, 0.8), 0 0 0 3px rgba(3, 236, 233, 0.15);
-  transform: translate(-50%, -50%);
-}
 
 /* ============ Process: stronger track ============ */
 .process-line { opacity: 0.65; height: 2px; }
