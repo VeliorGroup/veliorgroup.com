@@ -97,6 +97,17 @@ export async function POST(req: Request) {
   const referrer = str(body.referrer, 300);
   if (referrer) utm.referrer = referrer;
 
+  // Qualifying answer: which CRM the prospect already runs. Whitelisted so a
+  // crafted request cannot inject arbitrary text into the CRM record.
+  // Keep in sync with CRM_OPTIONS in src/components/ContactForm.tsx.
+  const CRM_VALUES = [
+    "salesforce", "dynamics", "hubspot", "sap", "oracle", "zoho",
+    "pipedrive", "odoo", "zendesk", "freshworks", "monday",
+    "teamsystem", "spreadsheet", "other", "none",
+  ];
+  const crmRaw = str(body.crm, 40).toLowerCase();
+  const crm = CRM_VALUES.includes(crmRaw) ? crmRaw : "";
+
   const payload: LeadPayload = {
     firstName,
     lastName,
@@ -105,6 +116,7 @@ export async function POST(req: Request) {
     phone,
     message,
     source: "Website Contact Form",
+    crm,
     utm,
   };
 

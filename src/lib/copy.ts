@@ -14,9 +14,9 @@ export const COPY = {
       cta: "Book a consultation",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["The Salesforce partner", "that builds AI that ships."] as [string, string],
-      lede: "We put Agentforce, Data Cloud and production-grade AI agents to work inside your Salesforce org \u2014 grounded in your data, governed, and measured on revenue.",
+      eyebrow: "Certified CRM & AI Partner",
+      title: ["AI that ships,", "on the CRM you already run."] as [string, string],
+      lede: "We put production-grade AI agents to work inside the CRM you already run \u2014 Salesforce, HubSpot, Dynamics or Odoo \u2014 grounded in your data, governed, and measured on revenue.",
       ctaPrimary: "Book a free consultation",
       ctaSecondary: "Explore our services",
       stats: [
@@ -209,9 +209,9 @@ export const COPY = {
       cta: "Prenota una consulenza",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["Il partner Salesforce", "che porta l\u2019AI in produzione."] as [string, string],
-      lede: "Portiamo Agentforce, Data Cloud e agenti AI di livello produttivo dentro la tua org Salesforce \u2014 ancorati ai tuoi dati, governati e misurati sui ricavi.",
+      eyebrow: "Partner certificato CRM & AI",
+      title: ["AI in produzione,", "sul CRM che già usi."] as [string, string],
+      lede: "Portiamo agenti AI di livello produttivo dentro il CRM che già usi \u2014 Salesforce, HubSpot, Dynamics o Odoo \u2014 ancorati ai tuoi dati, governati e misurati sui ricavi.",
       ctaPrimary: "Richiedi una consulenza gratuita",
       ctaSecondary: "Scopri i nostri servizi",
       stats: [
@@ -404,9 +404,9 @@ export const COPY = {
       cta: "Rezervo një konsultë",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["Partneri Salesforce", "që e çon AI-n\u00eb prodhim."] as [string, string],
-      lede: "Sjellim Agentforce, Data Cloud dhe agjentë AI të gatshëm për prodhim brenda org-ut tënd Salesforce \u2014 të ankoruar në të dhënat e tua, të qeverisur dhe të matur mbi të ardhurat.",
+      eyebrow: "Partner i çertifikuar CRM & AI",
+      title: ["AI në prodhim,", "mbi CRM-në që ke."] as [string, string],
+      lede: "Sjellim agjentë AI të gatshëm për prodhim brenda CRM-së që përdor tashmë \u2014 Salesforce, HubSpot, Dynamics ose Odoo \u2014 të ankoruar në të dhënat e tua, të qeverisur dhe të matur mbi të ardhurat.",
       ctaPrimary: "Kërko një konsultë falas",
       ctaSecondary: "Eksploro shërbimet",
       stats: [
@@ -599,9 +599,9 @@ export const COPY = {
       cta: "Beratung buchen",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["Der Salesforce-Partner,", "der KI in Produktion bringt."] as [string, string],
-      lede: "Wir bringen Agentforce, Data Cloud und produktionsreife KI-Agenten in Ihre Salesforce-Org \u2014 verankert in Ihren Daten, governed und am Umsatz gemessen.",
+      eyebrow: "Zertifizierter CRM- & KI-Partner",
+      title: ["KI in Produktion —", "auf Ihrem bestehenden CRM."] as [string, string],
+      lede: "Wir bringen produktionsreife KI-Agenten in Ihr bestehendes CRM \u2014 Salesforce, HubSpot, Dynamics oder Odoo \u2014 verankert in Ihren Daten, governed und am Umsatz gemessen.",
       ctaPrimary: "Kostenlose Beratung anfordern",
       ctaSecondary: "Leistungen entdecken",
       stats: [
@@ -794,9 +794,9 @@ export const COPY = {
       cta: "Réserver une consultation",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["Le partenaire Salesforce", "qui met l\u2019IA en production."] as [string, string],
-      lede: "Nous déployons Agentforce, Data Cloud et des agents IA prêts pour la production dans votre org Salesforce \u2014 ancrés dans vos données, gouvernés et mesurés sur le revenu.",
+      eyebrow: "Partenaire certifié CRM & IA",
+      title: ["L’IA en production,", "sur le CRM que vous avez déjà."] as [string, string],
+      lede: "Nous déployons des agents IA prêts pour la production dans le CRM que vous utilisez déjà \u2014 Salesforce, HubSpot, Dynamics ou Odoo \u2014 ancrés dans vos données, gouvernés et mesurés sur le revenu.",
       ctaPrimary: "Demander une consultation gratuite",
       ctaSecondary: "Découvrir nos services",
       stats: [
@@ -989,9 +989,9 @@ export const COPY = {
       cta: "احجز استشارة",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
-      title: ["شريك Salesforce", "الذي ينقل الذكاء الاصطناعي إلى الإنتاج."] as [string, string],
-      lede: "ن\u062f\u0645\u062c Agentforce وData Cloud ووكلاء ذكاء اصطناعي جاهزين للإنتاج داخل org الخاص بك في Salesforce \u2014 مرتكزين على بياناتك، ومحكومين، ومقاسين على الإيرادات.",
+      eyebrow: "شريك معتمد في CRM والذكاء الاصطناعي",
+      title: ["ذكاء اصطناعي في الإنتاج،", "على الـ CRM الذي تستخدمه."] as [string, string],
+      lede: "ندمج وكلاء ذكاء اصطناعي جاهزين للإنتاج داخل الـ CRM الذي تستخدمه \u2014 Salesforce أو HubSpot أو Dynamics أو Odoo \u2014 مرتكزين على بياناتك، ومحكومين، ومقاسين على الإيرادات.",
       ctaPrimary: "احجز استشارة مجانية",
       ctaSecondary: "اكتشف خدماتنا",
       stats: [

@@ -23,6 +23,8 @@ export type LeadPayload = {
   message: string;
   /** Marketing attribution — the whole point of this exercise. */
   source: string;
+  /** Which CRM the prospect already runs: the budget-qualifying signal. */
+  crm?: string;
   utm?: Record<string, string>;
 };
 
@@ -71,7 +73,11 @@ async function getToken(): Promise<TokenResponse> {
 
 /** Compose the Lead description from the message plus any UTM attribution. */
 function buildDescription(p: LeadPayload): string {
-  const lines = [p.message.trim()];
+  const lines: string[] = [];
+  // Put the qualifying answer first: it decides whether this lead is worth a
+  // meeting, so it must be readable without scrolling the record.
+  if (p.crm) lines.push(`CRM in use: ${p.crm}`, "");
+  lines.push(p.message.trim());
   if (p.utm && Object.keys(p.utm).length > 0) {
     lines.push("", "--- attribution ---");
     for (const [k, v] of Object.entries(p.utm)) lines.push(`${k}: ${v}`);

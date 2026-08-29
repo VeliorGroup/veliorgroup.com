@@ -11,13 +11,41 @@ import type { Lang } from "@/lib/copy";
  * self-contained; copy.ts carries the marketing prose, this carries UI chrome.
  */
 const L: Record<Lang, Record<string, string>> = {
-  en: { title: "Send a brief", name: "Name", email: "Work email", company: "Company", phone: "Phone (optional)", message: "What do you need?", send: "Send", sending: "Sending…", ok: "Thanks — we reply within one business day.", err: "Something went wrong. Write to us on WhatsApp or by email.", req: "Please check the highlighted fields.", ph: "Goals, current stack, timeline…" },
-  it: { title: "Raccontaci il progetto", name: "Nome", email: "Email aziendale", company: "Azienda", phone: "Telefono (facoltativo)", message: "Di cosa hai bisogno?", send: "Invia", sending: "Invio…", ok: "Grazie — rispondiamo entro un giorno lavorativo.", err: "Qualcosa è andato storto. Scrivici su WhatsApp o via email.", req: "Controlla i campi evidenziati.", ph: "Obiettivi, stack attuale, tempistiche…" },
-  sq: { title: "Na trego projektin", name: "Emri", email: "Email pune", company: "Kompania", phone: "Telefoni (opsional)", message: "Për çfarë ke nevojë?", send: "Dërgo", sending: "Duke dërguar…", ok: "Faleminderit — përgjigjemi brenda një dite pune.", err: "Diçka shkoi keq. Na shkruaj në WhatsApp ose email.", req: "Kontrollo fushat e theksuara.", ph: "Objektivat, stack-u aktual, afatet…" },
-  de: { title: "Projekt beschreiben", name: "Name", email: "Geschäftliche E-Mail", company: "Unternehmen", phone: "Telefon (optional)", message: "Was brauchen Sie?", send: "Senden", sending: "Senden…", ok: "Danke — wir antworten innerhalb eines Werktags.", err: "Etwas ist schiefgelaufen. Schreiben Sie uns per WhatsApp oder E-Mail.", req: "Bitte markierte Felder prüfen.", ph: "Ziele, aktueller Stack, Zeitplan…" },
-  fr: { title: "Décrivez le projet", name: "Nom", email: "E-mail professionnel", company: "Entreprise", phone: "Téléphone (facultatif)", message: "De quoi avez-vous besoin ?", send: "Envoyer", sending: "Envoi…", ok: "Merci — nous répondons sous un jour ouvré.", err: "Une erreur est survenue. Écrivez-nous sur WhatsApp ou par e-mail.", req: "Vérifiez les champs indiqués.", ph: "Objectifs, stack actuelle, délais…" },
-  ar: { title: "صف مشروعك", name: "الاسم", email: "البريد المهني", company: "الشركة", phone: "الهاتف (اختياري)", message: "ما الذي تحتاجه؟", send: "إرسال", sending: "جارٍ الإرسال…", ok: "شكرًا — نرد خلال يوم عمل واحد.", err: "حدث خطأ ما. راسلنا عبر واتساب أو البريد.", req: "يرجى مراجعة الحقول المحددة.", ph: "الأهداف، النظام الحالي، الجدول الزمني…" },
+  en: { title: "Send a brief", name: "Name", email: "Work email", company: "Company", phone: "Phone (optional)", message: "What do you need?", send: "Send", sending: "Sending…", ok: "Thanks — we reply within one business day.", err: "Something went wrong. Write to us on WhatsApp or by email.", req: "Please check the highlighted fields.", ph: "Goals, current stack, timeline…", sf: "Which CRM do you use?" },
+  it: { title: "Raccontaci il progetto", name: "Nome", email: "Email aziendale", company: "Azienda", phone: "Telefono (facoltativo)", message: "Di cosa hai bisogno?", send: "Invia", sending: "Invio…", ok: "Grazie — rispondiamo entro un giorno lavorativo.", err: "Qualcosa è andato storto. Scrivici su WhatsApp o via email.", req: "Controlla i campi evidenziati.", ph: "Obiettivi, stack attuale, tempistiche…", sf: "Quale CRM usate?" },
+  sq: { title: "Na trego projektin", name: "Emri", email: "Email pune", company: "Kompania", phone: "Telefoni (opsional)", message: "Për çfarë ke nevojë?", send: "Dërgo", sending: "Duke dërguar…", ok: "Faleminderit — përgjigjemi brenda një dite pune.", err: "Diçka shkoi keq. Na shkruaj në WhatsApp ose email.", req: "Kontrollo fushat e theksuara.", ph: "Objektivat, stack-u aktual, afatet…", sf: "Cilin CRM përdorni?" },
+  de: { title: "Projekt beschreiben", name: "Name", email: "Geschäftliche E-Mail", company: "Unternehmen", phone: "Telefon (optional)", message: "Was brauchen Sie?", send: "Senden", sending: "Senden…", ok: "Danke — wir antworten innerhalb eines Werktags.", err: "Etwas ist schiefgelaufen. Schreiben Sie uns per WhatsApp oder E-Mail.", req: "Bitte markierte Felder prüfen.", ph: "Ziele, aktueller Stack, Zeitplan…", sf: "Welches CRM nutzen Sie?" },
+  fr: { title: "Décrivez le projet", name: "Nom", email: "E-mail professionnel", company: "Entreprise", phone: "Téléphone (facultatif)", message: "De quoi avez-vous besoin ?", send: "Envoyer", sending: "Envoi…", ok: "Merci — nous répondons sous un jour ouvré.", err: "Une erreur est survenue. Écrivez-nous sur WhatsApp ou par e-mail.", req: "Vérifiez les champs indiqués.", ph: "Objectifs, stack actuelle, délais…", sf: "Quel CRM utilisez-vous ?" },
+  ar: { title: "صف مشروعك", name: "الاسم", email: "البريد المهني", company: "الشركة", phone: "الهاتف (اختياري)", message: "ما الذي تحتاجه؟", send: "إرسال", sending: "جارٍ الإرسال…", ok: "شكرًا — نرد خلال يوم عمل واحد.", err: "حدث خطأ ما. راسلنا عبر واتساب أو البريد.", req: "يرجى مراجعة الحقول المحددة.", ph: "الأهداف، النظام الحالي، الجدول الزمني…", sf: "ما الـ CRM الذي تستخدمه؟" },
 };
+
+/**
+ * The single qualifying question.
+ *
+ * The expensive losses were SMEs who could not fund CRM licences, and that
+ * only surfaced after several meetings. A company already running any CRM
+ * has proven it will pay for one; a company with none is the risky segment.
+ * Asking which CRM (not whether it is Salesforce) also routes the lead to
+ * the right practice. Optional, so it never costs a conversion.
+ */
+const CRM_OPTIONS: [string, string][] = [
+  ["", "—"],
+  ["salesforce", "Salesforce"],
+  ["dynamics", "Microsoft Dynamics 365"],
+  ["hubspot", "HubSpot"],
+  ["sap", "SAP"],
+  ["oracle", "Oracle / NetSuite"],
+  ["zoho", "Zoho CRM"],
+  ["pipedrive", "Pipedrive"],
+  ["odoo", "Odoo"],
+  ["zendesk", "Zendesk Sell"],
+  ["freshworks", "Freshworks"],
+  ["monday", "monday CRM"],
+  ["teamsystem", "TeamSystem / ERP"],
+  ["spreadsheet", "Excel / spreadsheets"],
+  ["other", "Other"],
+  ["none", "No CRM yet"],
+];
 
 type State = "idle" | "sending" | "sent" | "error";
 
@@ -55,6 +83,7 @@ export const ContactForm = () => {
       company: String(fd.get("company") ?? ""),
       phone: String(fd.get("phone") ?? ""),
       message: String(fd.get("message") ?? ""),
+      crm: String(fd.get("crm") ?? ""),
       website: String(fd.get("website") ?? ""), // honeypot
       ...attribution.current,
     };
@@ -111,6 +140,15 @@ export const ContactForm = () => {
       <label className="cf-field">
         <span className="cf-label">{c.phone}</span>
         <input name="phone" type="tel" autoComplete="tel" />
+      </label>
+
+      <label className="cf-field">
+        <span className="cf-label">{c.sf}</span>
+        <select name="crm" defaultValue="">
+          {CRM_OPTIONS.map(([v, label]) => (
+            <option key={v} value={v}>{label}</option>
+          ))}
+        </select>
       </label>
 
       <label className="cf-field">
