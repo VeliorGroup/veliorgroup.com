@@ -14,15 +14,15 @@ export const COPY = {
       cta: "Book a consultation",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · Albania",
-      title: ["CRM, automation, and AI", "engineered for growth."] as [string, string],
-      lede: "We help ambitious companies turn the Salesforce ecosystem, iPaaS automation, and full-stack engineering into measurable revenue.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["The Salesforce partner", "that builds AI that ships."] as [string, string],
+      lede: "We put Agentforce, Data Cloud and production-grade AI agents to work inside your Salesforce org \u2014 grounded in your data, governed, and measured on revenue.",
       ctaPrimary: "Book a free consultation",
       ctaSecondary: "Explore our services",
       stats: [
-        { v: "2025", l: "Founded" },
         { v: "15", l: "Engineers & consultants" },
         { v: "100+", l: "Salesforce certifications" },
+        { v: "5", l: "Countries served" }
       ],
     },
     partner: {
@@ -48,25 +48,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "What we do",
-      title: "Four pillars. One stack, shipped end-to-end.",
+      title: "AI on Salesforce, and the engineering to run it.",
       items: [
         {
           n: "01",
+          t: "AI & agents",
+          d: "LLM, RAG and agent systems engineered for production: grounded in your data, governed, and measurable.",
+          bullets: ["LLM & RAG pipelines", "Embeddings & vector search", "Agentforce & custom agents", "Evaluation & guardrails"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau and Agentforce: implemented, integrated, and tuned for ROI.",
           bullets: ["Implementation & migration", "Lightning & Apex development", "Reporting & dashboards", "Agentforce & AI agents"],
         },
         {
-          n: "02",
+          n: "03",
           t: "Full-stack engineering",
           d: "Custom software in Next.js, Node, Python and Go: built with the same rigour as the platforms we integrate.",
           bullets: ["Next.js / Angular / Vue apps", "FastAPI & Node services", "Postgres, Mongo, Redis", "DevOps & observability"],
-        },
-        {
-          n: "03",
-          t: "AI & agents",
-          d: "LLM, RAG and agent systems engineered for production: grounded in your data, governed, and measurable.",
-          bullets: ["LLM & RAG pipelines", "Embeddings & vector search", "Agentforce & custom agents", "Evaluation & guardrails"],
         },
         {
           n: "04",
@@ -209,15 +209,15 @@ export const COPY = {
       cta: "Prenota una consulenza",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · Albania",
-      title: ["CRM, automazione e AI", "al servizio della crescita."] as [string, string],
-      lede: "Aiutiamo le aziende ambiziose a trasformare l'ecosistema Salesforce, l'automazione iPaaS e lo sviluppo full-stack in ricavi misurabili.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["Il partner Salesforce", "che porta l\u2019AI in produzione."] as [string, string],
+      lede: "Portiamo Agentforce, Data Cloud e agenti AI di livello produttivo dentro la tua org Salesforce \u2014 ancorati ai tuoi dati, governati e misurati sui ricavi.",
       ctaPrimary: "Richiedi una consulenza gratuita",
       ctaSecondary: "Scopri i nostri servizi",
       stats: [
-        { v: "2025", l: "Fondata" },
         { v: "15", l: "Ingegneri & consulenti" },
         { v: "100+", l: "Certificazioni Salesforce" },
+        { v: "5", l: "Paesi serviti" }
       ],
     },
     partner: {
@@ -243,25 +243,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "Cosa facciamo",
-      title: "Quattro pilastri. Uno stack unico, consegnato end-to-end.",
+      title: "AI su Salesforce, e l\u2019ingegneria per sostenerla.",
       items: [
         {
           n: "01",
+          t: "AI & agenti",
+          d: "Sistemi LLM, RAG e agenti progettati per la produzione: radicati nei tuoi dati, governati e misurabili.",
+          bullets: ["Pipeline LLM & RAG", "Embeddings & vector search", "Agentforce & agenti custom", "Valutazione & guardrail"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau e Agentforce: implementati, integrati e ottimizzati per il ROI.",
           bullets: ["Implementazione & migrazione", "Sviluppo Lightning & Apex", "Reportistica & dashboard", "Agentforce & AI agents"],
         },
         {
-          n: "02",
+          n: "03",
           t: "Sviluppo full-stack",
           d: "Software custom in Next.js, Node, Python e Go: costruito con lo stesso rigore delle piattaforme che integriamo.",
           bullets: ["App Next.js / Angular / Vue", "Servizi FastAPI & Node", "Postgres, Mongo, Redis", "DevOps & observability"],
-        },
-        {
-          n: "03",
-          t: "AI & agenti",
-          d: "Sistemi LLM, RAG e agenti progettati per la produzione: radicati nei tuoi dati, governati e misurabili.",
-          bullets: ["Pipeline LLM & RAG", "Embeddings & vector search", "Agentforce & agenti custom", "Valutazione & guardrail"],
         },
         {
           n: "04",
@@ -404,15 +404,15 @@ export const COPY = {
       cta: "Rezervo një konsultë",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · Shqipëri",
-      title: ["CRM, automatizim dhe AI", "të ndërtuara për rritje."] as [string, string],
-      lede: "Ndihmojmë kompanitë ambicioze ta kthejnë ekosistemin Salesforce, automatizimin iPaaS dhe zhvillimin full-stack në të ardhura të matshme.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["Partneri Salesforce", "që e çon AI-n\u00eb prodhim."] as [string, string],
+      lede: "Sjellim Agentforce, Data Cloud dhe agjentë AI të gatshëm për prodhim brenda org-ut tënd Salesforce \u2014 të ankoruar në të dhënat e tua, të qeverisur dhe të matur mbi të ardhurat.",
       ctaPrimary: "Kërko një konsultë falas",
       ctaSecondary: "Eksploro shërbimet",
       stats: [
-        { v: "2025", l: "Themeluar" },
         { v: "15", l: "Inxhinierë & konsulentë" },
         { v: "100+", l: "Çertifikime Salesforce" },
+        { v: "5", l: "Shtete të shërbyera" }
       ],
     },
     partner: {
@@ -438,25 +438,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "Çfarë bëjmë",
-      title: "Katër shtylla. Një stack i vetëm, i dorëzuar end-to-end.",
+      title: "AI mbi Salesforce, dhe inxhinieria për ta mbajtur.",
       items: [
         {
           n: "01",
+          t: "AI & agentë",
+          d: "Sisteme LLM, RAG dhe agentë të dizajnuar për prodhim: të ankoruar në të dhënat tuaja, të qeverisur dhe të matshëm.",
+          bullets: ["Pipeline LLM & RAG", "Embeddings & vector search", "Agentforce & agentë custom", "Vlerësim & guardrail"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau dhe Agentforce: të zbatuara, të integruara dhe të rregulluara për ROI.",
           bullets: ["Implementim & migrim", "Zhvillim Lightning & Apex", "Raporte & dashboard", "Agentforce & AI agents"],
         },
         {
-          n: "02",
+          n: "03",
           t: "Zhvillim full-stack",
           d: "Software i dedikuar në Next.js, Node, Python dhe Go: i ndërtuar me të njëjtin rigorozitet si platformat që integrojmë.",
           bullets: ["Aplikacione Next.js / Angular / Vue", "Shërbime FastAPI & Node", "Postgres, Mongo, Redis", "DevOps & observability"],
-        },
-        {
-          n: "03",
-          t: "AI & agentë",
-          d: "Sisteme LLM, RAG dhe agentë të dizajnuar për prodhim: të ankoruar në të dhënat tuaja, të qeverisur dhe të matshëm.",
-          bullets: ["Pipeline LLM & RAG", "Embeddings & vector search", "Agentforce & agentë custom", "Vlerësim & guardrail"],
         },
         {
           n: "04",
@@ -599,15 +599,15 @@ export const COPY = {
       cta: "Beratung buchen",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · Schweiz",
-      title: ["CRM, Automatisierung und KI", "für nachhaltiges Wachstum."] as [string, string],
-      lede: "Wir helfen ambitionierten Unternehmen, das Salesforce-Ökosystem, iPaaS-Automatisierung und Full-Stack-Engineering in messbaren Umsatz zu verwandeln.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["Der Salesforce-Partner,", "der KI in Produktion bringt."] as [string, string],
+      lede: "Wir bringen Agentforce, Data Cloud und produktionsreife KI-Agenten in Ihre Salesforce-Org \u2014 verankert in Ihren Daten, governed und am Umsatz gemessen.",
       ctaPrimary: "Kostenlose Beratung anfordern",
       ctaSecondary: "Leistungen entdecken",
       stats: [
-        { v: "2025", l: "Gegründet" },
         { v: "15", l: "Ingenieure & Berater" },
         { v: "100+", l: "Salesforce-Zertifizierungen" },
+        { v: "5", l: "Belieferte Länder" }
       ],
     },
     partner: {
@@ -633,25 +633,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "Was wir tun",
-      title: "Vier Säulen. Ein Stack, durchgängig geliefert.",
+      title: "KI auf Salesforce \u2014 und das Engineering dahinter.",
       items: [
         {
           n: "01",
+          t: "KI & Agenten",
+          d: "LLM-, RAG- und Agentensysteme für die Produktion: in Ihren Daten verankert, governed und messbar.",
+          bullets: ["LLM- & RAG-Pipelines", "Embeddings & Vektorsuche", "Agentforce & Custom Agents", "Evaluation & Guardrails"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau und Agentforce: implementiert, integriert und auf ROI optimiert.",
           bullets: ["Implementierung & Migration", "Lightning- & Apex-Entwicklung", "Reporting & Dashboards", "Agentforce & KI-Agenten"],
         },
         {
-          n: "02",
+          n: "03",
           t: "Full-Stack-Entwicklung",
           d: "Custom-Software in Next.js, Node, Python und Go: gebaut mit derselben Sorgfalt wie die Plattformen, die wir integrieren.",
           bullets: ["Next.js / Angular / Vue Apps", "FastAPI- & Node-Services", "Postgres, Mongo, Redis", "DevOps & Observability"],
-        },
-        {
-          n: "03",
-          t: "KI & Agenten",
-          d: "LLM-, RAG- und Agentensysteme für die Produktion: in Ihren Daten verankert, governed und messbar.",
-          bullets: ["LLM- & RAG-Pipelines", "Embeddings & Vektorsuche", "Agentforce & Custom Agents", "Evaluation & Guardrails"],
         },
         {
           n: "04",
@@ -794,15 +794,15 @@ export const COPY = {
       cta: "Réserver une consultation",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · Suisse",
-      title: ["CRM, automatisation et IA", "au service de votre croissance."] as [string, string],
-      lede: "Nous aidons les entreprises ambitieuses à transformer l'écosystème Salesforce, l'automatisation iPaaS et le développement full-stack en revenus mesurables.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["Le partenaire Salesforce", "qui met l\u2019IA en production."] as [string, string],
+      lede: "Nous déployons Agentforce, Data Cloud et des agents IA prêts pour la production dans votre org Salesforce \u2014 ancrés dans vos données, gouvernés et mesurés sur le revenu.",
       ctaPrimary: "Demander une consultation gratuite",
       ctaSecondary: "Découvrir nos services",
       stats: [
-        { v: "2025", l: "Fondé" },
         { v: "15", l: "Ingénieurs & consultants" },
         { v: "100+", l: "Certifications Salesforce" },
+        { v: "5", l: "Pays desservis" }
       ],
     },
     partner: {
@@ -828,25 +828,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "Ce que nous faisons",
-      title: "Quatre piliers. Une stack, livrée de bout en bout.",
+      title: "L\u2019IA sur Salesforce, et l\u2019ing\u00e9nierie pour la faire tourner.",
       items: [
         {
           n: "01",
+          t: "IA & agents",
+          d: "Systèmes LLM, RAG et agents conçus pour la production : ancrés dans vos données, gouvernés et mesurables.",
+          bullets: ["Pipelines LLM & RAG", "Embeddings & recherche vectorielle", "Agentforce & agents sur mesure", "Évaluation & garde-fous"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud, Service Cloud, Marketing Cloud, Data Cloud, Tableau et Agentforce : implémentés, intégrés et optimisés pour le ROI.",
           bullets: ["Implémentation & migration", "Développement Lightning & Apex", "Reporting & dashboards", "Agentforce & agents IA"],
         },
         {
-          n: "02",
+          n: "03",
           t: "Développement full-stack",
           d: "Logiciels sur mesure en Next.js, Node, Python et Go : construits avec la même rigueur que les plateformes que nous intégrons.",
           bullets: ["Apps Next.js / Angular / Vue", "Services FastAPI & Node", "Postgres, Mongo, Redis", "DevOps & observabilité"],
-        },
-        {
-          n: "03",
-          t: "IA & agents",
-          d: "Systèmes LLM, RAG et agents conçus pour la production : ancrés dans vos données, gouvernés et mesurables.",
-          bullets: ["Pipelines LLM & RAG", "Embeddings & recherche vectorielle", "Agentforce & agents sur mesure", "Évaluation & garde-fous"],
         },
         {
           n: "04",
@@ -989,15 +989,15 @@ export const COPY = {
       cta: "احجز استشارة",
     },
     hero: {
-      eyebrow: "Salesforce Consulting Partner · ألبانيا",
-      title: ["CRM والأتمتة والذكاء الاصطناعي", "مبنية للنمو."] as [string, string],
-      lede: "نساعد الشركات الطموحة على تحويل منظومة Salesforce وأتمتة iPaaS وتطوير الـ full-stack إلى عائدات قابلة للقياس.",
+      eyebrow: "Salesforce Consulting Partner · AI & Agentforce",
+      title: ["شريك Salesforce", "الذي ينقل الذكاء الاصطناعي إلى الإنتاج."] as [string, string],
+      lede: "ن\u062f\u0645\u062c Agentforce وData Cloud ووكلاء ذكاء اصطناعي جاهزين للإنتاج داخل org الخاص بك في Salesforce \u2014 مرتكزين على بياناتك، ومحكومين، ومقاسين على الإيرادات.",
       ctaPrimary: "احجز استشارة مجانية",
       ctaSecondary: "اكتشف خدماتنا",
       stats: [
-        { v: "2025", l: "تأسست" },
         { v: "15", l: "مهندسون ومستشارون" },
         { v: "+100", l: "شهادات Salesforce" },
+        { v: "5", l: "دول نخدمها" }
       ],
     },
     partner: {
@@ -1023,25 +1023,25 @@ export const COPY = {
     },
     services: {
       eyebrow: "ما نقوم به",
-      title: "أربع ركائز. منظومة واحدة، تُسلَّم من البداية إلى النهاية.",
+      title: "الذكاء الاصطناعي على Salesforce، والهندسة التي تُشغّله.",
       items: [
         {
           n: "01",
+          t: "الذكاء الاصطناعي والوكلاء",
+          d: "أنظمة LLM و RAG ووكلاء مصممة للإنتاج: مرتكزة على بياناتك، محوكمة وقابلة للقياس.",
+          bullets: ["خطوط أنابيب LLM و RAG", "Embeddings والبحث المتجهي", "Agentforce ووكلاء مخصصون", "التقييم والحواجز"],
+        },
+        {
+          n: "02",
           t: "Salesforce",
           d: "Sales Cloud و Service Cloud و Marketing Cloud و Data Cloud و Tableau و Agentforce: مُنفَّذة ومُدمَجة ومُحسَّنة لعائد الاستثمار.",
           bullets: ["التطبيق والترحيل", "تطوير Lightning و Apex", "التقارير ولوحات البيانات", "Agentforce ووكلاء AI"],
         },
         {
-          n: "02",
+          n: "03",
           t: "تطوير Full-stack",
           d: "برمجيات مخصصة في Next.js و Node و Python و Go: مبنية بنفس صرامة المنصات التي ندمجها.",
           bullets: ["تطبيقات Next.js / Angular / Vue", "خدمات FastAPI و Node", "Postgres و Mongo و Redis", "DevOps والمراقبة"],
-        },
-        {
-          n: "03",
-          t: "الذكاء الاصطناعي والوكلاء",
-          d: "أنظمة LLM و RAG ووكلاء مصممة للإنتاج: مرتكزة على بياناتك، محوكمة وقابلة للقياس.",
-          bullets: ["خطوط أنابيب LLM و RAG", "Embeddings والبحث المتجهي", "Agentforce ووكلاء مخصصون", "التقييم والحواجز"],
         },
         {
           n: "04",
