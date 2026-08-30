@@ -9,15 +9,14 @@ non arriva niente in Salesforce.
 
 | # | Passo | Stato |
 |---|---|---|
-| 1 | Deploy metadata su `VELIOR_GROUP_PROD` | ✅ fatto (deploy `0AfWV000009KmJR0A0`, 4/4 componenti) |
+| 1 | Deploy metadata su `VELIOR_GROUP_PROD` | ✅ fatto (deploy `0AfWV000009KmJR0A0`) |
 | 2 | Utente di integrazione | ✅ creato — `website.integration@veliorgroup.com.pbo` (`005WV000007M3knYAC`) |
-| 2b | Permission set assegnato all'utente | ⚠️ **da verificare in Setup** (l'assegnazione da CLI ha restituito un errore) |
-| 3 | Abilitare client credentials + Run As | ❌ **da fare in Setup** — non esiste via API |
-| 4 | Consumer secret → `/etc/veliorgroup/env` sul VPS | ❌ **da fare** — nessun accesso SSH al VPS |
+| 2b | Permission set + permission set license | ✅ assegnati |
+| 3 | Client credentials flow + Run As | ✅ fatto da CLI (non serve la UI) |
+| 4 | Consumer secret → `/etc/veliorgroup/env` sul VPS | ❌ **da fare a mano** |
 | 5 | Verifica end-to-end | ❌ dopo il punto 4 |
 
-Restano ~10 minuti di lavoro manuale: i passi 3 e 4 non sono automatizzabili.
-Il **consumer key** è già stato generato dall'org ed è leggibile con:
+Manca solo il punto 4. Il **consumer key** è già stato generato dall'org:
 
 ```sh
 sf project retrieve start \
@@ -25,7 +24,12 @@ sf project retrieve start \
   --target-org VELIOR_GROUP_PROD
 ```
 
-Il **consumer secret** non compare mai in un retrieve: si legge solo da Setup.
+(Attenzione: quel retrieve riscrive il file sorgente includendo la chiave e
+cancellando i commenti — non committarlo così.)
+
+Il **consumer secret** invece non è esposto da nessuna API: né Metadata né
+Tooling (`ExternalClientApplication` non è un tipo Tooling). Si legge solo da
+Setup, ed è una scelta di sicurezza della piattaforma.
 
 ---
 
@@ -38,6 +42,7 @@ sf project deploy start \
   --source-dir force-app/main/default/externalClientApps \
   --source-dir force-app/main/default/extlClntAppGlobalOauthSets \
   --source-dir force-app/main/default/extlClntAppOauthSettings \
+  --source-dir force-app/main/default/extlClntAppOauthPolicies \
   --source-dir force-app/main/default/permissionsets/Velior_Website_Lead_Intake.permissionset-meta.xml \
   --target-org VELIOR_GROUP_PROD
 ```
@@ -50,52 +55,58 @@ creazione di nuove Connected App è disabilitata di default.
 Non usare un utente umano né un amministratore: se il segreto del sito viene
 compromesso, l'attaccante eredita i permessi di quell'utente.
 
-L'org aveva **5 licenze "Salesforce Integration" libere** — gratuite e nate
-esattamente per questo caso. L'utente creato:
-
 | Campo | Valore |
 |---|---|
 | Username | `website.integration@veliorgroup.com.pbo` |
 | Id | `005WV000007M3knYAC` |
 | Profile | `Minimum Access - API Only Integrations` |
-| Licenza | Salesforce Integration |
+| Licenza | Salesforce Integration (5 disponibili nell'org, gratuite) |
 
-**Da verificare:** l'assegnazione del permission set via CLI ha restituito un
-errore, mentre una query su `PermissionSetAssignment` mostra un'assegnazione
-con un nome non risolto. Controlla in Setup → Users → *Website Integration* →
-Permission Set Assignments che `Velior Website Lead Intake` sia presente, e in
-caso contrario assegnalo dalla UI.
-
-Comando CLI (se si preferisce riprovare da terminale):
+**Serve una permission set license**, altrimenti l'assegnazione del permission
+set fallisce con `FIELD_INTEGRITY_EXCEPTION: The user license doesn't allow the
+permission: Create Lead`. La licenza Salesforce Integration da sola non
+consente l'accesso agli oggetti standard:
 
 ```sh
+# 1. permission set license (Salesforce API Integration)
+sf api request rest "/services/data/v65.0/sobjects/PermissionSetLicenseAssign" \
+  --method POST --target-org VELIOR_GROUP_PROD \
+  --body '{"AssigneeId":"005WV000007M3knYAC","PermissionSetLicenseId":"0PLWV000000QEKR4A4"}'
+
+# 2. permission set
 sf org assign permset -n Velior_Website_Lead_Intake \
   -b website.integration@veliorgroup.com.pbo -o VELIOR_GROUP_PROD
 ```
 
-## 3. Abilitare client credentials e prendere le chiavi — ❌ da fare
+## 3. Client credentials flow e Run As — ✅ fatto da CLI
 
-Questi flag **non sono impostabili via Metadata API**: l'org li riporta a
-`false` a ogni deploy, per design. Vanno attivati dalla UI.
+Si configura interamente da source. Servono **due** file, entrambi necessari:
 
-Setup → **External Client Apps** → *Velior Website Lead Intake* → Policies → Edit:
+- `extlClntAppGlobalOauthSets/…ecaGlblOauth-meta.xml` → `isClientCredentialsFlowEnabled` (interruttore a livello di app)
+- `extlClntAppOauthPolicies/…ecaOauthPlcy-meta.xml` → `isClientCredentialsFlowEnabled` **e** `clientCredentialsFlowUser` (il Run As)
 
-1. **Enable Client Credentials Flow** → ON
-2. **Run As** → `website.integration@veliorgroup.com.pbo`
-3. Salva
+```xml
+<clientCredentialsFlowUser>website.integration@veliorgroup.com.pbo</clientCredentialsFlowUser>
+<isClientCredentialsFlowEnabled>true</isClientCredentialsFlowEnabled>
+```
 
-Poi Settings → OAuth Settings → **Consumer Key and Secret**: copia i due valori.
+Verificato con un retrieve dall'org dopo il deploy.
 
-> Il consumer key non si può impostare via metadata, viene generato dall'org
-> dopo il primo deploy. Il secret non è esposto da nessuna API: solo da Setup.
+> Il file delle policy non esiste finché non si fa il primo deploy dell'app:
+> viene generato dall'org e va recuperato con
+> `sf project retrieve start --metadata ExtlClntAppOauthConfigurablePolicies --target-org VELIOR_GROUP_PROD`.
 
-Scorciatoia per aprire la pagina:
+Per aprire comunque la pagina in Setup:
 
 ```sh
 sf org open -o VELIOR_GROUP_PROD -p /lightning/setup/ExternalClientAppManager/home
 ```
 
-## 4. Configurare il server di produzione
+## 4. Configurare il server di produzione — ❌ da fare
+
+Prendi il **consumer secret** da Setup → External Client Apps → *Velior Website
+Lead Intake* → Settings → OAuth Settings → *Consumer Key and Secret*. È l'unico
+valore che nessuna API espone.
 
 Sul VPS, come root:
 
