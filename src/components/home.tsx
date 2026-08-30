@@ -147,14 +147,21 @@ export const PartnerSection = () => {
           </div>
           <div className="cert-list">
             {t.partner.certs.map((c, i) => (
-              <Reveal key={i} delay={i * 40} className="cert-item">
+              <Reveal key={i} delay={i * 40} className={`cert-item${c.wip ? " cert-item-wip" : ""}`}>
                 <span className="cert-num">{String(i + 1).padStart(2, "0")}</span>
-                <span className="cert-name">{c}</span>
-                <span className="cert-check">
-                  <svg width="12" height="12" viewBox="0 0 12 12">
-                    <path d="M2 6 L5 9 L10 3" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <span className="cert-name">
+                  <span className="cert-vendor">{c.v}</span>
+                  {c.n}
                 </span>
+                {c.wip ? (
+                  <span className="cert-wip">{t.partner.wipLabel}</span>
+                ) : (
+                  <span className="cert-check">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                      <path d="M2 6 L5 9 L10 3" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                )}
               </Reveal>
             ))}
           </div>

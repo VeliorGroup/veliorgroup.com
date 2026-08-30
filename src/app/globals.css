@@ -2456,3 +2456,25 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--line-2);
   border-radius: 10px;
 }
+
+/* ---------- Certifications: vendor label + in-progress state ---------- */
+.cert-vendor {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-4);
+  margin-bottom: 2px;
+}
+/* Pending credentials are shown, but never as if they were earned. */
+.cert-item-wip { opacity: 0.72; }
+.cert-item-wip .cert-name { color: var(--fg-3); }
+.cert-wip {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--fg-4);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: 2px 9px;
+  white-space: nowrap;
+}
