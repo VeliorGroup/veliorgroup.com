@@ -2412,3 +2412,69 @@ button { font-family: inherit; cursor: pointer; }
   .hero-stat-v { font-size: clamp(26px, 8vw, 36px); }
   .hero-stat-l { font-size: 9px; margin-top: 10px; }
 }
+
+/* ---------- Contact form (Salesforce lead intake) ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-form-title { margin: 0 0 4px; }
+.cf-field { display: flex; flex-direction: column; gap: 6px; }
+.cf-label { font-size: 13px; color: var(--fg-3); letter-spacing: 0.01em; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 11px 13px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  color: var(--fg);
+  font: inherit;
+  font-size: 15px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: var(--fg-5); }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--line-strong);
+  box-shadow: 0 0 0 3px rgba(196, 177, 250, 0.14);
+}
+.contact-form textarea { resize: vertical; min-height: 108px; }
+.cf-submit { margin-top: 6px; align-self: flex-start; cursor: pointer; }
+.cf-submit:disabled { opacity: 0.6; cursor: default; }
+.cf-error { color: #ff8a8d; font-size: 14px; margin: 2px 0 0; }
+.contact-form-done {
+  padding: 22px;
+  margin-bottom: 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+}
+
+/* ---------- Certifications: vendor label + in-progress state ---------- */
+.cert-vendor {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-4);
+  margin-bottom: 2px;
+}
+/* Pending credentials are shown, but never as if they were earned. */
+.cert-item-wip { opacity: 0.72; }
+.cert-item-wip .cert-name { color: var(--fg-3); }
+.cert-wip {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--fg-4);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: 2px 9px;
+  white-space: nowrap;
+}

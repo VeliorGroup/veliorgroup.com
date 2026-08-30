@@ -5,6 +5,7 @@ import { CONTACT, waLink } from "@/lib/contacts";
 import { Arrow, Eyebrow, Reveal, SalesforcePartnerBadge, SectionHeading, WhatsAppGlyph } from "./atoms";
 import { ContactCTA, ProcessSection } from "./shared";
 import { WorldMap } from "./WorldMap";
+import { ContactForm } from "./ContactForm";
 import { TechStack } from "./home";
 import { CountUp } from "./fx";
 
@@ -160,6 +161,8 @@ export const ContactContent = () => {
           </div>
 
           <Reveal delay={200} className="contact-channels-card">
+          <ContactForm />
+
           <div className="channels-head">
             <span className="channels-eyebrow">{t.ui.directLine}</span>
             <h2 className="h2 channels-title">{t.ui.howToReach}</h2>

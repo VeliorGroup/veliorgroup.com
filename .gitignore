@@ -35,3 +35,11 @@ next-env.d.ts
 
 # TypeScript
 *.tsbuildinfo
+.gstack/
+
+# Local tooling artifacts
+graphify-out/
+*.code-workspace
+
+# Local secrets (never commit)
+.claude/settings.local.json
