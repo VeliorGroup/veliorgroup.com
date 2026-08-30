@@ -5,11 +5,31 @@ Finché non è completato il form **funziona lo stesso**: ogni lead viene scritt
 su disco in `LEAD_SPOOL_DIR` invece che nel CRM, quindi non si perde nulla — ma
 non arriva niente in Salesforce.
 
-Tempo stimato: ~20 minuti.
+## Stato attuale
+
+| # | Passo | Stato |
+|---|---|---|
+| 1 | Deploy metadata su `VELIOR_GROUP_PROD` | ✅ fatto (deploy `0AfWV000009KmJR0A0`, 4/4 componenti) |
+| 2 | Utente di integrazione | ✅ creato — `website.integration@veliorgroup.com.pbo` (`005WV000007M3knYAC`) |
+| 2b | Permission set assegnato all'utente | ⚠️ **da verificare in Setup** (l'assegnazione da CLI ha restituito un errore) |
+| 3 | Abilitare client credentials + Run As | ❌ **da fare in Setup** — non esiste via API |
+| 4 | Consumer secret → `/etc/veliorgroup/env` sul VPS | ❌ **da fare** — nessun accesso SSH al VPS |
+| 5 | Verifica end-to-end | ❌ dopo il punto 4 |
+
+Restano ~10 minuti di lavoro manuale: i passi 3 e 4 non sono automatizzabili.
+Il **consumer key** è già stato generato dall'org ed è leggibile con:
+
+```sh
+sf project retrieve start \
+  --metadata ExtlClntAppGlobalOauthSettings:Velior_Website_Lead_Intake \
+  --target-org VELIOR_GROUP_PROD
+```
+
+Il **consumer secret** non compare mai in un retrieve: si legge solo da Setup.
 
 ---
 
-## 1. Deploy dei metadata (org VELIOR_GROUP_PROD)
+## 1. Deploy dei metadata (org VELIOR_GROUP_PROD) — ✅ fatto
 
 Dal repo `~/WORKSPACE/SALESFORCE/VELIOR_GROUP`:
 
@@ -22,47 +42,58 @@ sf project deploy start \
   --target-org VELIOR_GROUP_PROD
 ```
 
-Il dry-run di questi 4 componenti è già stato validato con successo.
-
 Perché una External Client App e non una Connected App: da Spring '26 la
 creazione di nuove Connected App è disabilitata di default.
 
-## 2. Creare l'utente di integrazione
+## 2. Utente di integrazione — ✅ creato
 
 Non usare un utente umano né un amministratore: se il segreto del sito viene
 compromesso, l'attaccante eredita i permessi di quell'utente.
 
-L'org ha **5 licenze "Salesforce Integration" libere** (0 usate su 5) — sono
-gratuite e nate esattamente per questo caso.
-
-Setup → Users → New User:
+L'org aveva **5 licenze "Salesforce Integration" libere** — gratuite e nate
+esattamente per questo caso. L'utente creato:
 
 | Campo | Valore |
 |---|---|
-| Last Name | `Website Integration` |
-| Username | `website@veliorgroup.com.pbo` (qualsiasi, purché univoco) |
-| User License | **Salesforce Integration** |
-| Profile | `Salesforce API Only System Integrations` |
+| Username | `website.integration@veliorgroup.com.pbo` |
+| Id | `005WV000007M3knYAC` |
+| Profile | `Minimum Access - API Only Integrations` |
+| Licenza | Salesforce Integration |
 
-Poi assegna il permission set:
+**Da verificare:** l'assegnazione del permission set via CLI ha restituito un
+errore, mentre una query su `PermissionSetAssignment` mostra un'assegnazione
+con un nome non risolto. Controlla in Setup → Users → *Website Integration* →
+Permission Set Assignments che `Velior Website Lead Intake` sia presente, e in
+caso contrario assegnalo dalla UI.
+
+Comando CLI (se si preferisce riprovare da terminale):
 
 ```sh
 sf org assign permset -n Velior_Website_Lead_Intake \
-  -b website@veliorgroup.com.pbo -o VELIOR_GROUP_PROD
+  -b website.integration@veliorgroup.com.pbo -o VELIOR_GROUP_PROD
 ```
 
-## 3. Abilitare client credentials e prendere le chiavi
+## 3. Abilitare client credentials e prendere le chiavi — ❌ da fare
+
+Questi flag **non sono impostabili via Metadata API**: l'org li riporta a
+`false` a ogni deploy, per design. Vanno attivati dalla UI.
 
 Setup → **External Client Apps** → *Velior Website Lead Intake* → Policies → Edit:
 
 1. **Enable Client Credentials Flow** → ON
-2. **Run As** → l'utente di integrazione creato al punto 2
+2. **Run As** → `website.integration@veliorgroup.com.pbo`
 3. Salva
 
 Poi Settings → OAuth Settings → **Consumer Key and Secret**: copia i due valori.
 
 > Il consumer key non si può impostare via metadata, viene generato dall'org
-> dopo il primo deploy. Vanno letti da Setup.
+> dopo il primo deploy. Il secret non è esposto da nessuna API: solo da Setup.
+
+Scorciatoia per aprire la pagina:
+
+```sh
+sf org open -o VELIOR_GROUP_PROD -p /lightning/setup/ExternalClientAppManager/home
+```
 
 ## 4. Configurare il server di produzione
 
