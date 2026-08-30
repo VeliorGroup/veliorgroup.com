@@ -10,6 +10,15 @@ WorkingDirectory=/home/web/veliorgroup-live
 Environment=NODE_ENV=production
 Environment=PORT=3000
 Environment=HOSTNAME=127.0.0.1
+# Lead spool must survive restarts: PrivateTmp=true gives the unit its own
+# /tmp that is wiped on every restart, so the default /tmp/velior-leads would
+# silently destroy queued leads. Keep it on persistent storage.
+Environment=LEAD_SPOOL_DIR=/var/lib/veliorgroup/leads
+# Salesforce credentials (SF_CLIENT_ID / SF_CLIENT_SECRET) live here, outside
+# the repo and outside the deploy slots. The leading "-" means the service
+# still starts if the file is absent: the contact form then spools every lead
+# to disk instead of failing.
+EnvironmentFile=-/etc/veliorgroup/env
 ExecStart=/usr/bin/npm start --silent
 Restart=on-failure
 RestartSec=2
@@ -20,7 +29,7 @@ StandardError=append:/var/log/veliorgroup/app.log
 NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=read-only
-ReadWritePaths=/var/log/veliorgroup /home/web/veliorgroup-live
+ReadWritePaths=/var/log/veliorgroup /home/web/veliorgroup-live /var/lib/veliorgroup
 PrivateTmp=true
 
 [Install]
